@@ -1,0 +1,59 @@
+:root{
+    --whiteHouse: url('./img/house-white.png');
+    --whiteTasks: url('./img/task-white.png');
+}
+
+.left-pannel{
+    width: 80px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+}
+
+.button{
+    border-radius: 5px;
+    width:40px;
+    height: 40px;
+    padding: 3px;
+    margin: 17px 17px 17px 17px;
+}
+.button-white{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 4px rgb(255, 255, 255);
+}
+.active .button{
+    background-color: rgb(255, 225, 0);
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+
+}
+.button img,
+.button img{
+    width: 40px;
+    height: 40px;
+
+}
+.active .button .img-tasks{
+    content: var(--whiteTasks) !important;
+}
+.active .button .img-house{
+    content: var(--whiteHouse) !important;
+}
+
+.icon img{
+    width: 40px;
+    height: 40px;    
+}
+.icon{
+    border-radius: 5px;
+    width:40px;
+    height: 40px;
+    padding: 3px;
+    margin: 30px 17px 30px 17px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    text-align: center;
+
+}
+
+.white-block{
+    height: 470px;
+}
