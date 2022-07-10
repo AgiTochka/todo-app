@@ -8,6 +8,8 @@ import {
 
 import Home from './pages/home/Home';
 import Tasks from './pages/tasks/Tasks';
+import Registr from './pages/registration/Registration';
+import Wellcome from './pages/wellcome/Wellcome.js';
 
 const App = () => {
     return (
@@ -15,7 +17,9 @@ const App = () => {
         <Router>
             <div className='App'>
                 <Routes>
-                    <Route path={"/"} element={<Home />}></Route>
+                    <Route path={"/"} element={<Wellcome/>}></Route>
+                    <Route path={"/home"} element={<Home />}></Route>
+                    <Route path={"/register"} element={<Registr />}></Route>
                     <Route path={"/tasks"} element={<Tasks />}></Route>
 
                 </Routes>

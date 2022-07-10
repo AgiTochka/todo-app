@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+}
+
+.header-wellcome {
+    background: linear-gradient(177.23deg, #9C2CF3 -13.49%, #3A49F9 109.75%);
+    width: 100vw;
+    height: 36vh;
+    margin: 0;
+    position: relative;
+
+}
+
+
+.responsive-box {
+    position: absolute;
+
+
+}
+
+.responsive-box.two {
+    top: -19vw;
+    right: 13%;
+}
+
+.responsive-box.one {
+    top: 10vh;
+}
+
+.circle {
+    width: 30vw;
+    /* поддерживаются любые единицы, в том числе проценты */
+    background-color: #2E3A59;
+    opacity: 0.15;
+    border-radius: 50%;
+}
+
+.circle::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+
+}
+
+
+
+.main-wellcome {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box; /* Для Firefox */
+    width: 100vw;
+    background-color: white;
+    border-radius: 15px;
+    height: calc(100vh - 36vh + 15px - 13vh);
+    position: absolute;
+    top: calc(36vh - 15px);
+    left: 0;
+    right: 0;
+    display: flex;
+    padding-left: 15vw;
+    padding-top: 10vh;
+
+}
+
+.main-wellcome p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 96px;
+    background-color: #2AA5A0;
+    background-image: linear-gradient(96.77deg, #9C2CF3 6.68%, #F32CA3 55.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-wellcome b {
+    background-image: black;
+    background-color: black;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
