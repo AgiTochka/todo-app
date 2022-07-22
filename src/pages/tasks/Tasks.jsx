@@ -15,7 +15,6 @@ const Tasks = () => {
                         <fieldset>
                             <legend>TODO</legend>
                             <Task nameTask='Hello' textTask='Do this' completed = {false}></Task>
-
                         </fieldset>
                     </form>
                 </div>

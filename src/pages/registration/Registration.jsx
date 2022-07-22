@@ -76,6 +76,11 @@ class Registr extends React.Component {
                                 SIGNUP
                             </button>
                         </Link>
+                        <Link to={'/'}>
+                            <button className='btn-back'>
+                                BACK
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

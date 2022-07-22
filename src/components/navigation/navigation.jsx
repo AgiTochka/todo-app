@@ -15,13 +15,13 @@ class Navigation extends React.Component {
     render() {
         return (
             <div className='left-pannel'>
-                <NavLink to={'/register'}>
+                <NavLink to={'/'}>
                 <div className='icon'>
                     <img src={logo} alt='logo'></img>
                     </div>
                 </NavLink>
                 
-                <NavLink to={'/'}>
+                <NavLink to={'/home'}>
                     <div
                         className='button button-white'>
                         <img className='img-house' src={greyHouse} alt='logo' ></img>
