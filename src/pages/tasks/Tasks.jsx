@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../../components/navigation/navigation.js';
+import Navigation from '../../components/navigation/navigation.jsx';
 import Task from '../../components/task/task'
 
 import './Tasks.css';

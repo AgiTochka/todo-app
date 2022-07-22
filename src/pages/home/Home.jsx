@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './Home.css';
-import Navigation from '../../components/navigation/navigation.js';
+import Navigation from '../../components/navigation/navigation';
 import AddTask from '../../components/addTask/AddTask';
 
 

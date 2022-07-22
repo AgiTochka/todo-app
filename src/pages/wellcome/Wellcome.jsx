@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Login from '../login/Login';
+import Registr from '../registration/Registration';
 import './Wellcome.css';
 
 const Wellcome = () => {
@@ -14,15 +17,22 @@ const Wellcome = () => {
                 </div>
             </div>
             <div className='main-wellcome'>
-                <p>TODO</p><p><b>CHECK</b></p><p>.</p>
+                <div className="text-wellcome">
+                    <p>TODO</p><p><b>CHECK</b></p><p>.</p>
+                </div>
+
 
                 <div className='btn'>
+                <Link to={"/register"}>
                     <button className='btn-sign'>LOGIN</button>
+                </Link>
                     <button className='btn-sign'>SIGNUP</button>
                 </div>
 
+                <Registr/>
+                <Login/>
             </div>
-
+            
 
         </>
 
