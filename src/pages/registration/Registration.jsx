@@ -1,6 +1,7 @@
 import React from 'react';
 import './Registration.css';
 import { Link } from 'react-router-dom';
+import Header from '../../components/header/header';
 
 
 
@@ -58,32 +59,35 @@ class Registr extends React.Component {
     }
     render() {
         return (
-            <div className='main-registr'>
-                <div className='form-registr'>
-                    <div className='text-wellcome'>
-                        <p>Wellcome</p>
-                        <input id="username" value={this.state.username} onChange={(e) => this.handleInputChange(e)} placeholder='Username'></input>
-                        <p>!</p>
-                    </div>
-                    <div className='input-password'>
-                        <input id='password' value={this.state.password} onChange={(e) => this.handleInputChange(e)} type={'password'} placeholder='password'></input>
-                        <input id='passwordConfirm' value={this.state.passwordConfirm} onChange={(e) => { this.handleInputChange(e); this.checkPassword(e); }} type={'password'} placeholder='password'></input>
-                        <label className='errorLabel' id='error'>{this.state.labelValue}</label>
-                    </div>
-                    <div className='btn'>
-                        <Link to={this.state.link}>
-                            <button className='btn-signup' onClick={() => this.handleSubmit()}>
-                                SIGNUP
-                            </button>
-                        </Link>
-                        <Link to={'/'}>
-                            <button className='btn-back'>
-                                BACK
-                            </button>
-                        </Link>
+            <>
+                <Header/>
+                <div className='main-registr'>
+                    <div className='form-registr'>
+                        <div className='text-wellcome'>
+                            <p>Wellcome</p>
+                            <input id="username" value={this.state.username} onChange={(e) => this.handleInputChange(e)} placeholder='Username'></input>
+                            <p>!</p>
+                        </div>
+                        <div className='input-password'>
+                            <input id='password' value={this.state.password} onChange={(e) => this.handleInputChange(e)} type={'password'} placeholder='password'></input>
+                            <input id='passwordConfirm' value={this.state.passwordConfirm} onChange={(e) => { this.handleInputChange(e); this.checkPassword(e); }} type={'password'} placeholder='password'></input>
+                            <label className='errorLabel' id='error'>{this.state.labelValue}</label>
+                        </div>
+                        <div className='btn'>
+                            <Link to={this.state.link}>
+                                <button className='btn-signup' onClick={() => this.handleSubmit()}>
+                                    SIGNUP
+                                </button>
+                            </Link>
+                            <Link to={'/'}>
+                                <button className='btn-back'>
+                                    BACK
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </>
         );
     }
 

@@ -1,11 +1,14 @@
 .main-login {
+    width: 100vw;
+    height: calc(100vh - 36vh + 5px);
+    background-color: white;
     border-radius: 15px;
     position: fixed;
     left: 0;
     right: 0;
-    top: 7px;
-    animation-duration: 1s;
-    animation-name: login;
+    top: calc(36vh - 15px);
+    z-index: 3;
+
 }
 
 .form-login {
@@ -13,13 +16,15 @@
     background-color: white;
     border-radius: 15px;
     height: calc(100vh - 36vh + 15px - 13vh);
-    position: absolute;
+    position: fixed;
     top: calc(36vh - 15px);
     left: 0;
     right: 0;
     display: flex;
-    padding-top: 10vh;
+    padding-top: 2vh;
     flex-wrap: wrap;
+    animation-duration: 0.5s;
+    animation-name: login;
 }
 
 .text-wellcome {
@@ -114,4 +119,19 @@ input::placeholder {
 
 .btn-back {
     background: black;
+}
+
+
+
+@keyframes login{
+    from{
+        top: calc(36vh - 15px);
+        left: -300%;
+        right: 0;
+    }
+    to{
+        top: calc(36vh - 15px);
+        left: 0;
+        right: 0;
+    }
 }

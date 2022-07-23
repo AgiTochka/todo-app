@@ -2,43 +2,6 @@ body {
     margin: 0;
 }
 
-.header-wellcome {
-    background: linear-gradient(177.23deg, #9C2CF3 -13.49%, #3A49F9 109.75%);
-    width: 100vw;
-    height: 36vh;
-    margin: 0;
-    position: relative;
-
-}
-
-
-.responsive-box {
-    position: absolute;
-
-
-}
-
-.responsive-box.two {
-    top: calc((-17vh + -20vw)/2);
-    right: 13%;
-}
-
-.responsive-box.one {
-    top: 13vh;
-}
-
-@media screen and (max-width: 800px) {
-    .responsive-box.one {
-        top: 20vw;
-    }
-    .responsive-box.two {
-        top: -16vw;
-        right: 10%;
-    }
-    .circle{
-        width: 43vw !important;
-    }
-  }
 
   @media screen and (max-width: 800px) {
     .main-wellcome{
@@ -57,27 +20,10 @@ body {
 
   }
 
-.circle {
-    max-width: 400px;
-    width: 30vw;
-    /* поддерживаются любые единицы, в том числе проценты */
-    background-color: #2E3A59;
-    opacity: 0.15;
-    border-radius: 50%;
-}
-
-.circle::before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-
-}
 
 
 
 .main-wellcome {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box; /* Для Firefox */
     width: 100vw;
     background-color: white;
     border-radius: 15px;
@@ -149,15 +95,4 @@ body {
 }
 
 
-@keyframes registr{
-    from{
-        top: 0;
-        left: 300%;
-        right: 0;
-    }
-    to{
-        top: 7px;
-        left: 0;
-        right: 0;
-    }
-}
+

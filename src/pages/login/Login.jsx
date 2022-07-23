@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import Header from '../../components/header/header';
 
 class Login extends React.Component {
     /* constructor(props) {
@@ -11,6 +12,8 @@ class Login extends React.Component {
 
     render() {
         return (
+            <>
+            <Header/>
             <div className='main-login'>
                 <div className='form-login'>
                     <div className='text-wellcome'>
@@ -36,6 +39,7 @@ class Login extends React.Component {
                     </div>
                 </div>
             </div>
+            </>
         );
     }
 }
