@@ -1,97 +1,146 @@
-import React from 'react';
+import { useRef, useState, useEffect, React } from 'react';
 import './Registration.css';
 import { Link } from 'react-router-dom';
 import Header from '../../components/header/header';
+import axios from '../../api/axios';
 
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const REGISTER_URL = '/register';
 
+const Registr = () => {
 
-class Registr extends React.Component {
+    const userRef = useRef();
+    const errRef = useRef();
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: "",
-            password: "",
-            passwordConfirm: "",
-            labelValue: "",
-            link: "",
-        };
-    }
+    const [user, setUser] = useState('');
+    const [validName, setValidName] = useState(false);
+    const [userFocus, setUserFocus] = useState(false);
 
+    const [pwd, setPwd] = useState('');
+    const [validPwd, setValidPwd] = useState(false);
+    const [pwdFocus, setPwdFocus] = useState(false);
 
+    const [matchPwd, setMatchPwd] = useState('');
+    const [validMatch, setValidMatch] = useState(false);
+    const [matchFocus, setMatchFocus] = useState(false);
 
-    handleInputChange = (e) => {
-        const { id, value } = e.target;
+    const [errMsg, setErrMsg] = useState('');
+    const [success, setSuccess] = useState(false);
 
+    useEffect(() => {
+        userRef.current.focus();
+    }, [])
 
-        if (id === "username") {
-            this.setState({ username: value });
+    useEffect(() => {
+        setValidName(USER_REGEX.test(user));
+    }, [user])
+
+    useEffect(() => {
+        setValidPwd(PWD_REGEX.test(pwd));
+        setValidMatch(pwd === matchPwd);
+    }, [pwd, matchPwd])
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [user, pwd, matchPwd])
+
+    const handleSubmit = async (e) => {
+
+        try {
+            const response = await axios.post(REGISTER_URL,
+                JSON.stringify({ user, pwd }),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
+                }
+            );
+            setSuccess(true);
+            //clear state and controlled inputs
+            setUser('');
+            setPwd('');
+            setMatchPwd('');
+        } catch (err) {
+            if (err.response?.status >=500) {
+                setErrMsg('No Server Response');
+            } else if (err.response?.status >= 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status <= 199){
+                setErrMsg('Server is not exists');
+            } else {
+                setErrMsg('Registration Failed')
+            }
+            errRef.current.focus();
         }
-        if (id === "password") {
-            this.setState({ password: value });
-        }
-        if (id === "passwordConfirm") {
-            this.setState({ passwordConfirm: value });
-        }
-
     }
-
-    handleSubmit = () => {
-        console.log(this.state.username, this.state.password, this.state.passwordConfirm);
-    }
-
-    checkPassword = (e) => {
-        const { value } = e.target;
-
-        if (this.state.password !== value) {
-            this.setState({
-                labelValue: 'Incorrect. Passwords are different.',
-                link: ""
-            });
-        } else {
-            this.setState({
-                labelValue: '',
-                link: "/home"
-            });
-        }
-
-
-    }
-    render() {
-        return (
-            <>
-                <Header/>
-                <div className='main-registr'>
-                    <div className='form-registr'>
-                        <div className='text-wellcome'>
-                            <p>Wellcome</p>
-                            <input id="username" value={this.state.username} onChange={(e) => this.handleInputChange(e)} placeholder='Username'></input>
-                            <p>!</p>
-                        </div>
-                        <div className='input-password'>
-                            <input id='password' value={this.state.password} onChange={(e) => this.handleInputChange(e)} type={'password'} placeholder='password'></input>
-                            <input id='passwordConfirm' value={this.state.passwordConfirm} onChange={(e) => { this.handleInputChange(e); this.checkPassword(e); }} type={'password'} placeholder='password'></input>
-                            <label className='errorLabel' id='error'>{this.state.labelValue}</label>
-                        </div>
-                        <div className='btn'>
-                            <Link to={this.state.link}>
-                                <button className='btn-signup' onClick={() => this.handleSubmit()}>
-                                    SIGNUP
-                                </button>
-                            </Link>
-                            <Link to={'/'}>
-                                <button className='btn-back'>
-                                    BACK
-                                </button>
-                            </Link>
-                        </div>
+    return (
+        <>
+            <Header />
+            <div className='main-registr'>
+                <div className='form-registr'>
+                    <div className='text-wellcome'>
+                        <p>Wellcome</p>
+                        <input
+                            type="text"
+                            id="username"
+                            ref={userRef}
+                            autoComplete="off"
+                            onChange={(e) => setUser(e.target.value)}
+                            value={user}
+                            required
+                            aria-invalid={validName ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            onFocus={() => setUserFocus(true)}
+                            onBlur={() => setUserFocus(false)}
+                            placeholder='Username'
+                        ></input>
+                        <p>!</p>
+                    </div>
+                    <div className='input-password'>
+                        <input
+                            type="password"
+                            id="password"
+                            onChange={(e) => setPwd(e.target.value)}
+                            value={pwd}
+                            required
+                            aria-invalid={validPwd ? "false" : "true"}
+                            aria-describedby="pwdnote"
+                            onFocus={() => setPwdFocus(true)}
+                            onBlur={() => setPwdFocus(false)}
+                            placeholder='password'
+                        ></input>
+                        <input
+                            placeholder='password'
+                            type="password"
+                            id="confirm_pwd"
+                            onChange={(e) => setMatchPwd(e.target.value)}
+                            value={matchPwd}
+                            required
+                            aria-invalid={validMatch ? "false" : "true"}
+                            aria-describedby="confirmnote"
+                            onFocus={() => setMatchFocus(true)}
+                            onBlur={() => setMatchFocus(false)}
+                        ></input>
+                        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    </div>
+                    <div className='btn'>
+                        <Link to={success? '/home': '/register'}>
+                            <button className='btn-signup' onClick={handleSubmit}>
+                                SIGNUP
+                            </button>
+                        </Link>
+                        <Link to={'/'}>
+                            <button className='btn-back'>
+                                BACK
+                            </button>
+                        </Link>
                     </div>
                 </div>
-            </>
-        );
-    }
-
-
-
+            </div>
+        </>
+    );
 }
+
+
+
 export default Registr;

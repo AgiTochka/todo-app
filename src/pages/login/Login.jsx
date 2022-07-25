@@ -29,8 +29,8 @@ const Login = () => {
             );
             console.log(JSON.stringify(response?.data));
             setAuth({ user, pwd });
-            console.log('login: ', user);
-            console.log('password: ', pwd);
+            /*console.log('login: ', user);
+            console.log('password: ', pwd);*/
             setUser('');
             setPwd('');
             setSuccess(true);

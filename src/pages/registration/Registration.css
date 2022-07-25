@@ -85,7 +85,7 @@ input::placeholder {
 }
 
 #password,
-#passwordConfirm {
+#confirm_pwd {
     margin: 10px;
     width: 20vw;
 }
@@ -110,7 +110,7 @@ input::placeholder {
     }
 
     #password,
-    #passwordConfirm {
+    #confirm_pwd {
         margin: 10px;
         width: 30vw;
     }
@@ -144,13 +144,14 @@ input::placeholder {
 }
 
 
-@keyframes registr{
-    from{
+@keyframes registr {
+    from {
         top: calc(36vh - 15px);
         left: 300%;
         right: 0;
     }
-    to{
+
+    to {
         top: calc(36vh - 15px);
         left: 0;
         right: 0;
