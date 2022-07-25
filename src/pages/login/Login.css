@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     display: flex;
-    padding-top: 2vh;
+    padding-top: 10vh;
     flex-wrap: wrap;
     animation-duration: 0.5s;
     animation-name: login;
@@ -81,6 +81,7 @@ input::placeholder {
         width: 80%;
         margin: auto;
         justify-content: center;
+        padding-top: 2vh;
     }
 
     .text-wellcome {
@@ -126,7 +127,7 @@ input::placeholder {
 @keyframes login{
     from{
         top: calc(36vh - 15px);
-        left: -300%;
+        left: 300%;
         right: 0;
     }
     to{
