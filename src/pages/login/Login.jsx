@@ -35,11 +35,13 @@ const Login = () => {
             setPwd('');
             setSuccess(true);
         } catch (err) {
-            if (!err?.response) {
+            if (err.response?.status >=500) {
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
+            } else if (err.response?.status >= 400) {
                 setErrMsg('Missing Username or Password');
-            } else {
+            } else if (err.response?.status <= 199){
+                setErrMsg('Server is not exists');
+            } else{
                 setErrMsg('Login Failed');
             }
             errRef.current.focus();
