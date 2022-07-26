@@ -1,12 +1,8 @@
 import React from 'react';
-
 import './navigation.css';
-import greyHouse from './img/house-grey.png';
-import logo from './img/logo.png';
-import greyTasks from './img/task-grey.png';
-
-
-import {NavLink} from 'react-router-dom';
+import iconTask from './img/icon-task.svg';
+import iconDb from './img/icon-db.svg';
+import { NavLink } from 'react-router-dom';
 
 
 class Navigation extends React.Component {
@@ -16,22 +12,21 @@ class Navigation extends React.Component {
         return (
             <div className='left-pannel'>
                 <NavLink to={'/'}>
-                <div className='icon'>
-                    <img src={logo} alt='logo'></img>
+                    <div className="text-icon">
+                        <p>TODO</p><p><b>CHECK</b></p><p>.</p>
                     </div>
                 </NavLink>
-                
+
                 <NavLink to={'/home'}>
-                    <div
-                        className='button button-white'>
-                        <img className='img-house' src={greyHouse} alt='logo' ></img>
+                    <div className='button button-white'>
+                        <img className='icon-svg' src={iconDb} alt='logo' />
+                        <p>Dashboard</p>
                     </div>
                 </NavLink>
                 <NavLink to={"/tasks"}>
-                    <div
-
-                        className='button button-white'>
-                        <img className='img-tasks' src={greyTasks} alt='logo' ></img>
+                    <div className='button button-dark'>
+                        <img className='icon-svg' src={iconTask} alt='logo' />
+                        <p>ToDo</p>
                     </div>
                 </NavLink>
 

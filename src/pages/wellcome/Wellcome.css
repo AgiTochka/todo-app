@@ -12,10 +12,14 @@ body {
         padding: 0 !important;
     }
     .text-wellcome{
+
         width: 100%;
         display: flex;
         justify-content: center;
         align-content: center;
+    }
+    .text-wellcome p{
+        font-size: 1em !important;
     }
 
   }
@@ -38,16 +42,18 @@ body {
 
 }
 
-.text-wellcome {
+.text-wellcome p{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 800;
-    font-size: 3em;
-    margin: auto;
+    font-size: 1.15em;
     background-color: #2AA5A0;
     background-image: linear-gradient(96.77deg, #9C2CF3 6.68%, #F32CA3 55.12%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.text-wellcome{
+    margin: auto;
     display: flex;
 }
 .text-wellcome:hover{
