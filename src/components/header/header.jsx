@@ -1,20 +1,25 @@
-import React from "react";
-import './header.css'
+import React from 'react';
+import './header.css';
+import iconMenu from './img/menu.svg';
 
-const Header = () => {
+class Header extends React.Component {
+    render() {
+        return (
+            <div className='main-header'>
+                <div className='menu'>
+                    <button> <img src={iconMenu} /></button>
+                    <h2>ToDo</h2>
+                </div>
+                <div className='userInfo'>
+                    <label>Username</label>
+                </div>
+                <div className='search'>
+                    <input placeholder='Search Project' />
+                </div>
 
-    return (
-        <div className='header-wellcome'>
-            <div className='responsive-box one'>
-                <div className='circle '></div>
             </div>
-            <div className='responsive-box two'>
-                <div className='circle'></div>
-            </div>
-        </div>
-    );
+        );
 
-
+    }
 }
-
 export default Header;

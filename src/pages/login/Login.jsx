@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useContext, React } from 'react';
 import AuthContext from '../../context/AuthProvider';
 import './Login.css';
 import { Link } from 'react-router-dom';
-import Header from '../../components/header/header';
+import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 
 const LOGIN_URL = '/auth';
@@ -51,7 +51,7 @@ const Login = () => {
 
     return (
         <>
-            <Header />
+            <ArtElement />
             <div className='main-login'>
                     <div className='form-login'>
                         <div className='text-wellcome'>

@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, React } from 'react';
 import './Registration.css';
 import { Link } from 'react-router-dom';
-import Header from '../../components/header/header';
+import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -75,7 +75,7 @@ const Registr = () => {
     }
     return (
         <>
-            <Header />
+            <ArtElement />
             <div className='main-registr'>
                 <div className='form-registr'>
                     <div className='text-wellcome'>

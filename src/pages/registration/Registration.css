@@ -49,8 +49,7 @@
 }
 
 
-.text-wellcome input,
-input {
+.text-wellcome input{
     padding-left: 3px;
     font-size: medium;
     border: none;

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../components/header/header';
+import ArtElement from '../../components/artElement/artElement';
 import './Wellcome.css';
 
 const Wellcome = () => {
 
     return (
         <>
-            <Header />
+            <ArtElement />
             <div className='main-wellcome'>
                 <div className="text-wellcome">
                     <p>TODO</p><p><b>CHECK</b></p><p>.</p>
