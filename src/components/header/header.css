@@ -1,15 +1,42 @@
 .main-header{
     background-color: white;
-    position: relative;
+    position: fixed;
     display: flex;
     flex-direction: row;
     width:calc(100vw - 18vw);
     height:70px;
-    top:-100vh;
     left:18vw;
+    top:0;
 }
 
 .menu{
     display: flex;
     flex-direction: row;
+}
+
+.menu button{
+    border: none;
+    background: none;
+    margin: auto;
+    padding: 15px 15px 15px 15px;
+}
+
+.menu h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: auto;
+    padding: 10px 15px 15px 15px;
+
+}
+
+.search{
+    padding-top: 15px;
+}
+.search input{
+    padding: 10px;
+    height: 60%;
+    border: none;
+    outline: none;
+    background: rgba(239, 239, 239, 0.47);
+    border-radius: 18px;
 }

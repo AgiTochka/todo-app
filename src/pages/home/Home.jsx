@@ -16,6 +16,8 @@ const Home = () => {
         <div className='main-home'>
             <Navigation />
             <Header />
+            <div className='workSpace'>
+            </div>
           
         </div>
 

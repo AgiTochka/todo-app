@@ -2,12 +2,16 @@ import React from 'react';
 import './header.css';
 import iconMenu from './img/menu.svg';
 
-class Header extends React.Component {
-    render() {
+const Header = () => {
+    const Pannel = () => {
+        const pan = document.getElementById('pannel');
+        pan.classList.add('anim');
+        console.log('ku');
+    }
         return (
             <div className='main-header'>
                 <div className='menu'>
-                    <button> <img src={iconMenu} /></button>
+                    <button onClick={()=>Pannel()}> <img src={iconMenu} alt={''} /></button>
                     <h2>ToDo</h2>
                 </div>
                 <div className='userInfo'>
@@ -19,7 +23,5 @@ class Header extends React.Component {
 
             </div>
         );
-
-    }
 }
 export default Header;

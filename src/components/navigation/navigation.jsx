@@ -10,7 +10,7 @@ class Navigation extends React.Component {
 
     render() {
         return (
-            <div className='left-pannel'>
+            <div className='left-pannel' id={'pannel'}>
                 <NavLink to={'/'}>
                     <div className="text-icon">
                         <p>TODO</p><p><b>CHECK</b></p><p>.</p>

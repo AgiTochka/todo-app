@@ -31,17 +31,19 @@
 /*main text*/
 
 .text-wellcome {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 3em;
     margin: auto;
+    display: flex;
+}
+
+.text-wellcome p{
     background-color: #2AA5A0;
     background-image: linear-gradient(96.77deg, #9C2CF3 6.68%, #F32CA3 55.12%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: flex;
-
 }
 
 .text-wellcome:hover {
@@ -49,45 +51,44 @@
 }
 
 
-.text-wellcome input{
-    padding-left: 3px;
-    font-size: medium;
-    border: none;
-    outline: none;
-    background: linear-gradient(96.77deg, rgba(156, 44, 243, 0.4) 6.68%, rgba(243, 44, 163, 0.4) 55.12%);
-    border-radius: 10px;
-    height: 45px;
-    margin: auto;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 0.375rem 0.75rem;
 
-}
-
-input::placeholder {
-    font-style: italic;
-    font-size: medium;
-    text-align: center;
-    color: rgb(255, 255, 255);
-}
 
 /*password input*/
 
-.input-password {
+.input-password,
+.inputUsername{
     display: flex;
     flex-direction: column;
     margin: auto;
     padding: 10px;
 
 }
-
-#password,
-#confirm_pwd {
-    margin: 10px;
+.input-password input,
+.inputUsername input {
     width: 20vw;
+    border: none;
+    outline: none;
+    background: linear-gradient(96.77deg, rgba(156, 44, 243, 0.4) 6.68%, rgba(243, 44, 163, 0.4) 55.12%);
+    border-radius: 10px;
+    height: 45px;
+    margin: 10px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
 }
+.input-password input::-webkit-input-placeholder,
+.text-wellcome input::-webkit-input-placeholder{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+}
+
+
 
 /*for screen <800px*/
 
@@ -120,14 +121,15 @@ input::placeholder {
 
 .btn-signup,
 .btn-back {
-    width: 30vw;
-    max-width: 240px;
+    width: 33vw;
+    max-width: 300px;
+    height: 50px;
     margin: 20px;
     box-shadow: 17px 26px 25px rgba(226, 226, 226, 0.25);
     border-radius: 75px;
     border: none;
     color: white;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     padding: 10px;

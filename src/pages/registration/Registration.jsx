@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect, React } from 'react';
+import {useRef, useState, useEffect, React} from 'react';
 import './Registration.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 
@@ -48,24 +48,28 @@ const Registr = () => {
     const handleSubmit = async (e) => {
 
         try {
-            const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ user, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
-            );
-            setSuccess(true);
-            //clear state and controlled inputs
-            setUser('');
-            setPwd('');
-            setMatchPwd('');
+            if (pwd !== matchPwd) {
+                setErrMsg('Password is not equal');
+            } else {
+                const response = await axios.post(REGISTER_URL,
+                    JSON.stringify({user, pwd}),
+                    {
+                        headers: {'Content-Type': 'application/json'},
+                        withCredentials: true
+                    }
+                );
+                setSuccess(true);
+                //clear state and controlled inputs
+                setUser('');
+                setPwd('');
+                setMatchPwd('');
+            }
         } catch (err) {
-            if (err.response?.status >=500) {
+            if (err.response?.status >= 500) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status >= 400) {
                 setErrMsg('Missing Username or Password');
-            } else if (err.response?.status <= 199){
+            } else if (err.response?.status <= 199) {
                 setErrMsg('Server is not exists');
             } else {
                 setErrMsg('Registration Failed')
@@ -75,27 +79,30 @@ const Registr = () => {
     }
     return (
         <>
-            <ArtElement />
+            <ArtElement/>
             <div className='main-registr'>
                 <div className='form-registr'>
                     <div className='text-wellcome'>
                         <p>Wellcome</p>
-                        <input
-                            type="text"
-                            id="username"
-                            ref={userRef}
-                            autoComplete="off"
-                            onChange={(e) => setUser(e.target.value)}
-                            value={user}
-                            required
-                            aria-invalid={validName ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setUserFocus(true)}
-                            onBlur={() => setUserFocus(false)}
-                            placeholder='Username'
-                        ></input>
+                        <div className='inputUsername'>
+                            <input
+                                type="text"
+                                id="username"
+                                ref={userRef}
+                                autoComplete="off"
+                                onChange={(e) => setUser(e.target.value)}
+                                value={user}
+                                required
+                                aria-invalid={validName ? "false" : "true"}
+                                aria-describedby="uidnote"
+                                onFocus={() => setUserFocus(true)}
+                                onBlur={() => setUserFocus(false)}
+                                placeholder='Username'
+                            />
+                        </div>
                         <p>!</p>
                     </div>
+
                     <div className='input-password'>
                         <input
                             type="password"
@@ -108,7 +115,7 @@ const Registr = () => {
                             onFocus={() => setPwdFocus(true)}
                             onBlur={() => setPwdFocus(false)}
                             placeholder='password'
-                        ></input>
+                        />
                         <input
                             placeholder='password'
                             type="password"
@@ -120,11 +127,11 @@ const Registr = () => {
                             aria-describedby="confirmnote"
                             onFocus={() => setMatchFocus(true)}
                             onBlur={() => setMatchFocus(false)}
-                        ></input>
+                        />
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     </div>
                     <div className='btn'>
-                        <Link to={success? '/home': '/register'}>
+                        <Link to={success ? '/home' : '/register'}>
                             <button className='btn-signup' onClick={handleSubmit}>
                                 SIGNUP
                             </button>
@@ -140,7 +147,6 @@ const Registr = () => {
         </>
     );
 }
-
 
 
 export default Registr;

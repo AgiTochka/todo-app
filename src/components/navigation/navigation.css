@@ -1,9 +1,15 @@
 .left-pannel {
     width: 18vw;
-    height: 100vh;
     background-color: rgb(255, 255, 255);
-    position: relative;
-
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top:0;
+    left:0;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .left-pannel a {
@@ -18,7 +24,7 @@
 }
 
 .text-icon p {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 2vw;
@@ -74,4 +80,50 @@
 
 .white-block {
     height: 470px;
+}
+@media screen and (max-width: 700px) {
+    .left-pannel {
+        width: 50%;
+        height: 100%;
+    }
+    div.content {margin-left: 0;}
+
+    .text-icon p{
+        font-size: 2em;
+        text-align: center;
+    }
+    .button {
+        width: 80%;
+        height: 60px;
+        font-size: 1em;
+    }
+    .button img{
+        width: 10%;
+    }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+    .left-pannel{
+        width: 100%;
+        height: 100%;
+
+    }
+    .text-icon p {
+        font-size: 3em;
+    }
+}
+
+.anim{
+    animation-name: pannel;
+    animation-duration: 0.5ms;
+    left: -18vw;
+}
+@keyframes pannel {
+    from{
+        left: 0;
+    }
+    to{
+        left:-18vw;
+    }
 }

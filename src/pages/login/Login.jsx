@@ -1,14 +1,14 @@
-import { useRef, useState, useEffect, useContext, React } from 'react';
+import {useRef, useState, useEffect, useContext, React} from 'react';
 import AuthContext from '../../context/AuthProvider';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 
 const LOGIN_URL = '/auth';
 
 const Login = () => {
-    const { setAuth } = useContext(AuthContext);
+    const {setAuth} = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
 
@@ -21,27 +21,27 @@ const Login = () => {
 
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
+                JSON.stringify({user, pwd}),
                 {
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {'Content-Type': 'application/json'},
                     withCredentials: true
                 }
             );
             console.log(JSON.stringify(response?.data));
-            setAuth({ user, pwd });
+            setAuth({user, pwd});
             /*console.log('login: ', user);
             console.log('password: ', pwd);*/
             setUser('');
             setPwd('');
             setSuccess(true);
         } catch (err) {
-            if (err.response?.status >=500) {
+            if (err.response?.status >= 500) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status >= 400) {
                 setErrMsg('Missing Username or Password');
-            } else if (err.response?.status <= 199){
+            } else if (err.response?.status <= 199) {
                 setErrMsg('Server is not exists');
-            } else{
+            } else {
                 setErrMsg('Login Failed');
             }
             errRef.current.focus();
@@ -51,48 +51,48 @@ const Login = () => {
 
     return (
         <>
-            <ArtElement />
+            <ArtElement/>
             <div className='main-login'>
-                    <div className='form-login'>
-                        <div className='text-wellcome'>
-                            <p>Wellcome</p>
-                            <b>Back</b>
-                            <p>!</p>
-                        </div>
-                        <div className='input-user'>
-                            <input
-                                type="text"
-                                id="username"
-                                ref={userRef}
-                                autoComplete="off"
-                                placeholder='username'
-                                onChange={(e) => setUser(e.target.value)}
-                                value={user}
-                                required
-                            />
-                            <input
-                                id='password'
-                                onChange={(e) => setPwd(e.target.value)}
-                                type={'password'}
-                                placeholder='password'
-                                value={pwd}
-                                required
-                            />
-                            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                        </div>
-                        <div className='btn'>
-                            <Link to={success ? '/home' : '/login'}>
-                                <button className='btn-login' onClick={handleSubmit} >
-                                    LOGIN
-                                </button>
-                            </Link>
-                            <Link to={'/'}>
-                                <button className='btn-back'>
-                                    BACK
-                                </button>
-                            </Link>
-                        </div>
+                <div className='form-login'>
+                    <div className='text-wellcome'>
+                        <p>Wellcome</p>
+                        <p><b>Back</b></p>
+                        <p>!</p>
                     </div>
+                    <div className='input-user'>
+                        <input
+                            type="text"
+                            id="username"
+                            ref={userRef}
+                            autoComplete="off"
+                            placeholder='username'
+                            onChange={(e) => setUser(e.target.value)}
+                            value={user}
+                            required
+                        />
+                        <input
+                            id='password'
+                            onChange={(e) => setPwd(e.target.value)}
+                            type={'password'}
+                            placeholder='password'
+                            value={pwd}
+                            required
+                        />
+                        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    </div>
+                    <div className='btn'>
+                        <Link to={success ? '/home' : '/login'}>
+                            <button className='btn-login' onClick={handleSubmit}>
+                                LOGIN
+                            </button>
+                        </Link>
+                        <Link to={'/'}>
+                            <button className='btn-back'>
+                                BACK
+                            </button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </>
     );
