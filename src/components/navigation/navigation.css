@@ -116,7 +116,7 @@
 
 .anim{
     animation-name: pannel;
-    animation-duration: 0.5ms;
+    animation-duration: 0.3s;
     left: -18vw;
 }
 @keyframes pannel {

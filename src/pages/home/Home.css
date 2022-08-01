@@ -4,13 +4,13 @@
     height: 100%;
 }
 
-.workSpace{
+.workspace{
     margin-left: 18vw;
     margin-top: 70px;
     background: #F9F9F9;
     width: calc(100vw - 18vw);
     height: calc(100vh - 70px);
-    border-radius: 25px;
+    border-radius: 38px;
 }
 
 .main-body{
@@ -38,6 +38,23 @@
     border-radius: 5px;
     box-shadow: 0 2px 1px 2px rgba(0, 0, 0, 0.252);
     cursor: pointer;
+}
+
+.animWorkspace{
+    animation-name: workspace;
+    animation-duration: 0.3s;
+    margin-left: 0vw;
+    width: 100vw;
+}
+@keyframes workspace{
+    from{
+        margin-left: 18vw;
+        width: calc(100vw - 18vw);
+    }
+    to{
+        margin-left: 0vw;
+        width: 100vw;
+    }
 }
 
 

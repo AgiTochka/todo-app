@@ -40,3 +40,21 @@
     background: rgba(239, 239, 239, 0.47);
     border-radius: 18px;
 }
+
+.animHeader{
+    animation-name: header;
+    animation-duration: 0.3s;
+    left: 0vw;
+    width: 100vw
+}
+
+@keyframes header{
+    from{
+        left: 18vw;
+        width: calc(100vw - 18vw)
+    }
+    to{
+        left: 0vw;
+        width: 100vw;
+    }
+}

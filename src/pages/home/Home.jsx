@@ -16,7 +16,7 @@ const Home = () => {
         <div className='main-home'>
             <Navigation />
             <Header />
-            <div className='workSpace'>
+            <div className='workspace' id="workspace">
             </div>
           
         </div>
