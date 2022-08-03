@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect, useContext, React} from 'react';
+import {usernameef, useState, useEffect, useContext, React} from 'react';
 import AuthContext from '../../context/AuthProvider';
 import './Login.css';
 import {Link} from 'react-router-dom';
@@ -9,11 +9,11 @@ const LOGIN_URL = '/auth';
 
 const Login = () => {
     const {setAuth} = useContext(AuthContext);
-    const userRef = useRef();
-    const errRef = useRef();
+    const usernameRef = usernameef();
+    const errRef = usernameef();
 
-    const [user, setUser] = useState('');
-    const [password, setpassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
@@ -21,24 +21,24 @@ const Login = () => {
 
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({user, password}),
+                JSON.stringify({username, password}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
                 }
             );
             console.log(JSON.stringify(response?.data));
-            setAuth({user, password});
-            /*console.log('login: ', user);
+            setAuth({username, password});
+            /*console.log('login: ', username);
             console.log('password: ', password);*/
-            setUser('');
-            setpassword('');
+            setUsername('');
+            setPassword('');
             setSuccess(true);
         } catch (err) {
             if (err.response?.status >= 500) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status >= 400) {
-                setErrMsg('Missing Username or Password');
+                setErrMsg('Missing usernamename or Password');
             } else if (err.response?.status <= 199) {
                 setErrMsg('Server is not exists');
             } else {
@@ -59,20 +59,20 @@ const Login = () => {
                         <p><b>Back</b></p>
                         <p>!</p>
                     </div>
-                    <div className='input-user'>
+                    <div className='input-username'>
                         <input
                             type="text"
-                            id="username"
-                            ref={userRef}
+                            id="usernamename"
+                            ref={usernameRef}
                             autoComplete="off"
-                            placeholder='username'
-                            onChange={(e) => setUser(e.target.value)}
-                            value={user}
+                            placeholder='usernamename'
+                            onChange={(e) => setUsername(e.target.value)}
+                            value={username}
                             required
                         />
                         <input
                             id='password'
-                            onChange={(e) => setpassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             type={'password'}
                             placeholder='password'
                             value={password}

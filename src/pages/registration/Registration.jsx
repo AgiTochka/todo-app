@@ -1,25 +1,25 @@
-import {useRef, useState, useEffect, React} from 'react';
+import {usernameef, useState, useEffect, React} from 'react';
 import './Registration.css';
 import {Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const username_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const password_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/register';
 
 const Registr = () => {
 
-    const userRef = useRef();
-    const errRef = useRef();
+    const usernameRef = usernameef();
+    const errRef = usernameef();
 
-    const [user, setUser] = useState('');
+    const [username, setUsername] = useState('');
     const [validName, setValidName] = useState(false);
-    const [userFocus, setUserFocus] = useState(false);
+    const [usernameFocus, setUsernameFocus] = useState(false);
 
-    const [password, setpassword] = useState('');
+    const [password, setPassword] = useState('');
     const [validpassword, setValidpassword] = useState(false);
-    const [passwordFocus, setpasswordFocus] = useState(false);
+    const [passwordFocus, setPasswordFocus] = useState(false);
 
     const [matchPassword, setmatchPassword] = useState('');
     const [validMatch, setValidMatch] = useState(false);
@@ -29,12 +29,12 @@ const Registr = () => {
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
-        userRef.current.focus();
+        usernameRef.current.focus();
     }, [])
 
     useEffect(() => {
-        setValidName(USER_REGEX.test(user));
-    }, [user])
+        setValidName(username_REGEX.test(username));
+    }, [username])
 
     useEffect(() => {
         setValidpassword(password_REGEX.test(password));
@@ -43,7 +43,7 @@ const Registr = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, password, matchPassword])
+    }, [username, password, matchPassword])
 
     const handleSubmit = async (e) => {
 
@@ -52,7 +52,7 @@ const Registr = () => {
                 setErrMsg('Password is not equal');
             } else {
                 const response = await axios.post(REGISTER_URL,
-                    JSON.stringify({user, password}),
+                    JSON.stringify({username, password}),
                     {
                         headers: {'Content-Type': 'application/json'},
                         withCredentials: true
@@ -60,15 +60,15 @@ const Registr = () => {
                 );
                 setSuccess(true);
                 //clear state and controlled inputs
-                setUser('');
-                setpassword('');
+                setUsername('');
+                setPassword('');
                 setmatchPassword('');
             }
         } catch (err) {
             if (err.response?.status >= 500) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status >= 400) {
-                setErrMsg('Missing Username or Password');
+                setErrMsg('Missing usernamename or Password');
             } else if (err.response?.status <= 199) {
                 setErrMsg('Server is not exists');
             } else {
@@ -84,20 +84,20 @@ const Registr = () => {
                 <div className='form-registr'>
                     <div className='text-wellcome'>
                         <p>Wellcome</p>
-                        <div className='inputUsername'>
+                        <div className='inputusernamename'>
                             <input
                                 type="text"
-                                id="username"
-                                ref={userRef}
+                                id="usernamename"
+                                ref={usernameRef}
                                 autoComplete="off"
-                                onChange={(e) => setUser(e.target.value)}
-                                value={user}
+                                onChange={(e) => setUsername(e.target.value)}
+                                value={username}
                                 required
                                 aria-invalid={validName ? "false" : "true"}
                                 aria-describedby="uidnote"
-                                onFocus={() => setUserFocus(true)}
-                                onBlur={() => setUserFocus(false)}
-                                placeholder='Username'
+                                onFocus={() => setUsernameFocus(true)}
+                                onBlur={() => setUsernameFocus(false)}
+                                placeholder='usernamename'
                             />
                         </div>
                         <p>!</p>
@@ -107,13 +107,13 @@ const Registr = () => {
                         <input
                             type="password"
                             id="password"
-                            onChange={(e) => setpassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             required
                             aria-invalid={validpassword ? "false" : "true"}
                             aria-describedby="passwordnote"
-                            onFocus={() => setpasswordFocus(true)}
-                            onBlur={() => setpasswordFocus(false)}
+                            onFocus={() => setPasswordFocus(true)}
+                            onBlur={() => setPasswordFocus(false)}
                             placeholder='password'
                         />
                         <input
