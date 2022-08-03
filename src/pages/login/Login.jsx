@@ -1,4 +1,4 @@
-import {usernameef, useState, useEffect, useContext, React} from 'react';
+import {useRef, useState, useEffect, useContext, React} from 'react';
 import AuthContext from '../../context/AuthProvider';
 import './Login.css';
 import {Link} from 'react-router-dom';
@@ -9,8 +9,8 @@ const LOGIN_URL = '/auth';
 
 const Login = () => {
     const {setAuth} = useContext(AuthContext);
-    const usernameRef = usernameef();
-    const errRef = usernameef();
+    const usernameRef = useRef();
+    const errRef = useRef();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -59,13 +59,13 @@ const Login = () => {
                         <p><b>Back</b></p>
                         <p>!</p>
                     </div>
-                    <div className='input-username'>
+                    <div className='input-user'>
                         <input
                             type="text"
-                            id="usernamename"
+                            id="username"
                             ref={usernameRef}
                             autoComplete="off"
-                            placeholder='usernamename'
+                            placeholder='username'
                             onChange={(e) => setUsername(e.target.value)}
                             value={username}
                             required

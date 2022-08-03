@@ -1,4 +1,4 @@
-import {usernameef, useState, useEffect, React} from 'react';
+import {useRef, useState, useEffect, React} from 'react';
 import './Registration.css';
 import {Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
@@ -10,8 +10,8 @@ const REGISTER_URL = '/register';
 
 const Registr = () => {
 
-    const usernameRef = usernameef();
-    const errRef = usernameef();
+    const usernameRef = useRef();
+    const errRef = useRef();
 
     const [username, setUsername] = useState('');
     const [validName, setValidName] = useState(false);
@@ -68,7 +68,7 @@ const Registr = () => {
             if (err.response?.status >= 500) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status >= 400) {
-                setErrMsg('Missing usernamename or Password');
+                setErrMsg('Missing Username or Password');
             } else if (err.response?.status <= 199) {
                 setErrMsg('Server is not exists');
             } else {
@@ -84,10 +84,10 @@ const Registr = () => {
                 <div className='form-registr'>
                     <div className='text-wellcome'>
                         <p>Wellcome</p>
-                        <div className='inputusernamename'>
+                        <div className='inputUsername'>
                             <input
                                 type="text"
-                                id="usernamename"
+                                id="username"
                                 ref={usernameRef}
                                 autoComplete="off"
                                 onChange={(e) => setUsername(e.target.value)}
@@ -97,7 +97,7 @@ const Registr = () => {
                                 aria-describedby="uidnote"
                                 onFocus={() => setUsernameFocus(true)}
                                 onBlur={() => setUsernameFocus(false)}
-                                placeholder='usernamename'
+                                placeholder='username'
                             />
                         </div>
                         <p>!</p>
