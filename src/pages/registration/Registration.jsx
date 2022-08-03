@@ -5,7 +5,7 @@ import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const password_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/register';
 
 const Registr = () => {
@@ -17,11 +17,11 @@ const Registr = () => {
     const [validName, setValidName] = useState(false);
     const [userFocus, setUserFocus] = useState(false);
 
-    const [pwd, setPwd] = useState('');
-    const [validPwd, setValidPwd] = useState(false);
-    const [pwdFocus, setPwdFocus] = useState(false);
+    const [password, setpassword] = useState('');
+    const [validpassword, setValidpassword] = useState(false);
+    const [passwordFocus, setpasswordFocus] = useState(false);
 
-    const [matchPwd, setMatchPwd] = useState('');
+    const [matchPassword, setmatchPassword] = useState('');
     const [validMatch, setValidMatch] = useState(false);
     const [matchFocus, setMatchFocus] = useState(false);
 
@@ -37,22 +37,22 @@ const Registr = () => {
     }, [user])
 
     useEffect(() => {
-        setValidPwd(PWD_REGEX.test(pwd));
-        setValidMatch(pwd === matchPwd);
-    }, [pwd, matchPwd])
+        setValidpassword(password_REGEX.test(password));
+        setValidMatch(password === matchPassword);
+    }, [password, matchPassword])
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd, matchPwd])
+    }, [user, password, matchPassword])
 
     const handleSubmit = async (e) => {
 
         try {
-            if (pwd !== matchPwd) {
+            if (password !== matchPassword) {
                 setErrMsg('Password is not equal');
             } else {
                 const response = await axios.post(REGISTER_URL,
-                    JSON.stringify({user, pwd}),
+                    JSON.stringify({user, password}),
                     {
                         headers: {'Content-Type': 'application/json'},
                         withCredentials: true
@@ -61,8 +61,8 @@ const Registr = () => {
                 setSuccess(true);
                 //clear state and controlled inputs
                 setUser('');
-                setPwd('');
-                setMatchPwd('');
+                setpassword('');
+                setmatchPassword('');
             }
         } catch (err) {
             if (err.response?.status >= 500) {
@@ -107,21 +107,21 @@ const Registr = () => {
                         <input
                             type="password"
                             id="password"
-                            onChange={(e) => setPwd(e.target.value)}
-                            value={pwd}
+                            onChange={(e) => setpassword(e.target.value)}
+                            value={password}
                             required
-                            aria-invalid={validPwd ? "false" : "true"}
-                            aria-describedby="pwdnote"
-                            onFocus={() => setPwdFocus(true)}
-                            onBlur={() => setPwdFocus(false)}
+                            aria-invalid={validpassword ? "false" : "true"}
+                            aria-describedby="passwordnote"
+                            onFocus={() => setpasswordFocus(true)}
+                            onBlur={() => setpasswordFocus(false)}
                             placeholder='password'
                         />
                         <input
                             placeholder='password'
                             type="password"
-                            id="confirm_pwd"
-                            onChange={(e) => setMatchPwd(e.target.value)}
-                            value={matchPwd}
+                            id="confirm_password"
+                            onChange={(e) => setmatchPassword(e.target.value)}
+                            value={matchPassword}
                             required
                             aria-invalid={validMatch ? "false" : "true"}
                             aria-describedby="confirmnote"

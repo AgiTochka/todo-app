@@ -13,7 +13,7 @@ const Login = () => {
     const errRef = useRef();
 
     const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
+    const [password, setpassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
@@ -21,18 +21,18 @@ const Login = () => {
 
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({user, pwd}),
+                JSON.stringify({user, password}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
                 }
             );
             console.log(JSON.stringify(response?.data));
-            setAuth({user, pwd});
+            setAuth({user, password});
             /*console.log('login: ', user);
-            console.log('password: ', pwd);*/
+            console.log('password: ', password);*/
             setUser('');
-            setPwd('');
+            setpassword('');
             setSuccess(true);
         } catch (err) {
             if (err.response?.status >= 500) {
@@ -72,10 +72,10 @@ const Login = () => {
                         />
                         <input
                             id='password'
-                            onChange={(e) => setPwd(e.target.value)}
+                            onChange={(e) => setpassword(e.target.value)}
                             type={'password'}
                             placeholder='password'
-                            value={pwd}
+                            value={password}
                             required
                         />
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
