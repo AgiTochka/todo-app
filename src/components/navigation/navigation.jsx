@@ -18,13 +18,13 @@ class Navigation extends React.Component {
                 </NavLink>
 
                 <NavLink to={'/home'}>
-                    <div className='button button-white'>
+                    <div className='button button-dark'>
                         <img className='icon-svg' src={iconDb} alt='logo' />
                         <p>Dashboard</p>
                     </div>
                 </NavLink>
                 <NavLink to={"/tasks"}>
-                    <div className='button button-dark'>
+                    <div className='button button-white'>
                         <img className='icon-svg' src={iconTask} alt='logo' />
                         <p>ToDo</p>
                     </div>

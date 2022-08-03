@@ -1,6 +1,6 @@
-import {useRef, useState, useEffect, React} from 'react';
+import { useRef, useState, useEffect, React } from 'react';
 import './Registration.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 
@@ -52,9 +52,9 @@ const Registr = () => {
                 setErrMsg('Password is not equal');
             } else {
                 const response = await axios.post(REGISTER_URL,
-                    JSON.stringify({user, password}),
+                    JSON.stringify({ user, password }),
                     {
-                        headers: {'Content-Type': 'application/json'},
+                        headers: { 'Content-Type': 'application/json' },
                         withCredentials: true
                     }
                 );
@@ -79,7 +79,7 @@ const Registr = () => {
     }
     return (
         <>
-            <ArtElement/>
+            <ArtElement />
             <div className='main-registr'>
                 <div className='form-registr'>
                     <div className='text-wellcome'>
@@ -131,11 +131,13 @@ const Registr = () => {
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     </div>
                     <div className='btn'>
-                        <Link to={success ? '/home' : '/register'}>
-                            <button className='btn-signup' onClick={handleSubmit}>
+
+                        <button className='btn-signup' onClick={handleSubmit}>
+                            <Link to={success ? '/home' : '/register'}>
                                 SIGNUP
-                            </button>
-                        </Link>
+                            </Link>
+                        </button>
+
                         <Link to={'/'}>
                             <button className='btn-back'>
                                 BACK
