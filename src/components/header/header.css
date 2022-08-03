@@ -7,6 +7,7 @@
     height:70px;
     left:18vw;
     top:0;
+    justify-content: space-between;
 }
 
 .menu{
@@ -28,17 +29,34 @@
     padding: 10px 15px 15px 15px;
 
 }
+.userInfo{
+    padding: 18px 15px 15px 15px;
+}
 
 .search{
-    padding-top: 15px;
-}
-.search input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
     padding: 10px;
     height: 60%;
+    padding-top: 15px;
+    
+    background: #f8f7f7;
+    border-radius: 18px;
+}
+.search input{
+    background: #f8f7f7;
     border: none;
     outline: none;
-    background: rgba(239, 239, 239, 0.47);
-    border-radius: 18px;
+}
+.search img{
+    width: 15px;
+}
+
+.rightSide{
+    display: flex;
+    flex-direction: row;
 }
 
 .animHeader{

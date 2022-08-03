@@ -113,6 +113,9 @@
 
 }
 
+.btn{
+    width: 100vw;
+}
 .btn-login,
 .btn-back {
     width: 33vw;
