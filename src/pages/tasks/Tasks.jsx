@@ -7,11 +7,11 @@ import Header from "../../components/header/header";
 
 const Tasks = () => {
     return (
-        <>
-            <Header/>
+
             <div className='main-task'>
                 <Navigation/>
-                <div className='main-body'>
+                <Header/>
+                <div id='workspace' className='workspaceTask '>
                     <button className='all-todo'>ALL TODO</button>
                     <div className='border'>
                         <form>
@@ -31,7 +31,7 @@ const Tasks = () => {
                     </div>
                 </div>
             </div>
-        </>
+
     )
 }
 

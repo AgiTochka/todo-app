@@ -1,17 +1,18 @@
 .main-task{
-    background-color: rgba(233, 233, 233, 0.679);
+    background-color: white;
     display: flex;
     min-height: 100vh;
 
 }
 
 
-.main-body{
-    margin-left: 80px;
-    width: 100%;
-    padding-bottom: 30px;
-    
-
+.workspaceTask{
+    margin-left: 18vw;
+    margin-top: 70px;
+    background: #F9F9F9;
+    width: calc(100vw - 18vw);
+    height: calc(100vh - 70px);
+    border-radius: 38px;
 }
 
 .all-todo{
@@ -35,4 +36,21 @@
     font-weight: bold;
     width: 90%;
     margin: auto;
+}
+
+.animWorkspace{
+    animation-name: workspace;
+    animation-duration: 0.3s;
+    margin-left: 0vw;
+    width: 100vw;
+}
+@keyframes workspace{
+    from{
+        margin-left: 18vw;
+        width: calc(100vw - 18vw);
+    }
+    to{
+        margin-left: 0vw;
+        width: 100vw;
+    }
 }
