@@ -10,6 +10,7 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
+    transition: left 0.3s;
 }
 
 .left-pannel a {
@@ -35,7 +36,6 @@
 }
 
 .text-icon b {
-    background-image: black;
     background-color: black;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -115,15 +115,5 @@
 }
 
 .anim{
-    animation-name: pannel;
-    animation-duration: 0.3s;
     left: -18vw;
-}
-@keyframes pannel {
-    from{
-        left: 0;
-    }
-    to{
-        left:-18vw;
-    }
 }

@@ -8,6 +8,7 @@
     left:18vw;
     top:0;
     justify-content: space-between;
+    transition: width 0.3s, left 0.3s;
 }
 
 .menu{
@@ -60,19 +61,6 @@
 }
 
 .animHeader{
-    animation-name: header;
-    animation-duration: 0.3s;
-    left: 0vw;
+    left: 0;
     width: 100vw
-}
-
-@keyframes header{
-    from{
-        left: 18vw;
-        width: calc(100vw - 18vw)
-    }
-    to{
-        left: 0vw;
-        width: 100vw;
-    }
 }

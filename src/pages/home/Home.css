@@ -11,6 +11,7 @@
     width: calc(100vw - 18vw);
     height: calc(100vh - 70px);
     border-radius: 38px;
+    transition: margin-left 0.3s, width 0.3s;
 }
 
 .main-body{
@@ -41,20 +42,9 @@
 }
 
 .animWorkspace{
-    animation-name: workspace;
-    animation-duration: 0.3s;
-    margin-left: 0vw;
+    margin-left: 0;
     width: 100vw;
 }
-@keyframes workspace{
-    from{
-        margin-left: 18vw;
-        width: calc(100vw - 18vw);
-    }
-    to{
-        margin-left: 0vw;
-        width: 100vw;
-    }
-}
+
 
 
