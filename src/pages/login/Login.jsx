@@ -1,16 +1,17 @@
 import {useRef, useState, useEffect, useContext, React} from 'react';
 import AuthContext from '../../context/AuthProvider';
 import './Login.css';
-import {Link} from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
+import useAuth from '../../context/AuthProvider';
 
 const LOGIN_URL = '/auth';
 
 const Login = () => {
-    const {setAuth} = useContext(AuthContext);
     const usernameRef = useRef();
     const errRef = useRef();
+    const history = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -18,7 +19,7 @@ const Login = () => {
     const [success, setSuccess] = useState(false);
 
     const handleSubmit = async (e) => {
-
+        e.preventDefault();
         try {
             const response = await axios.post(LOGIN_URL,
                 JSON.stringify({username, password}),
@@ -28,23 +29,25 @@ const Login = () => {
                 }
             );
             console.log(JSON.stringify(response?.data));
-            setAuth({username, password});
             /*console.log('login: ', username);
             console.log('password: ', password);*/
             setUsername('');
             setPassword('');
             setSuccess(true);
+            history('/home');
         } catch (err) {
+            console.log('gvhhj err');
             if (err.response?.status >= 500) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status >= 400) {
-                setErrMsg('Missing usernamename or Password');
+                setErrMsg('Missing Username or Password');
             } else if (err.response?.status <= 199) {
                 setErrMsg('Server is not exists');
             } else {
                 setErrMsg('Login Failed');
             }
             errRef.current.focus();
+
         }
     }
 
@@ -53,7 +56,7 @@ const Login = () => {
         <>
             <ArtElement/>
             <div className='main-login'>
-                <div className='form-login'>
+                <form className='form-login' onSubmit={handleSubmit}>
                     <div className='text-wellcome'>
                         <p>Wellcome</p>
                         <p><b>Back</b></p>
@@ -81,18 +84,16 @@ const Login = () => {
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     </div>
                     <div className='btn'>
-                        <Link to={success ? '/home' : '/login'}>
-                            <button className='btn-login' onClick={handleSubmit}>
+                            <button className='btn-login' >
                                 LOGIN
                             </button>
-                        </Link>
                         <Link to={'/'}>
                             <button className='btn-back'>
                                 BACK
                             </button>
                         </Link>
                     </div>
-                </div>
+                </form>
             </div>
         </>
     );
