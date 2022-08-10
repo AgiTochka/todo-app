@@ -17,21 +17,25 @@
     overflow: hidden;
     padding-bottom: 50px;
 }
-
-.all-todo{
-    width: 40%;
-    color: rgb(255, 255, 255);
-    font-weight: bolder;
-    font-size: medium;
-    height: auto;
-    padding: 7px;
-    border-radius: 6px;
-    text-align: center;
-    margin: 7% 30% 5% 30%;
-    background-image: linear-gradient(96.77deg, #9C2CF3 6.68%, #F32CA3 55.12%);
-    outline: none;
+.task-space{
+    overflow: auto;
+    height: 100%;
+}
+.btn-create{
+    background: linear-gradient(277.09deg, #9C2CF3 -0.05%, #3A49F9 100%);
+    box-shadow: 17px 26px 25px rgba(226, 226, 226, 0.25);
+    border-radius: 75px;
     border: none;
-    box-shadow: 0 0 4px rgba(0,0,0,0.25);
+    outline: none;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    position: relative;
+    bottom: -80vh;
+    width: 140px;
+    left: calc(50% - 70px);
 }
 
 .border{
