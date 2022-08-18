@@ -1,29 +1,36 @@
 import React from 'react';
 import './AddTask.css';
+import ArtElement from "../artElement/artElement";
+import arrowBack from './img/arrow-short_left.svg';
 
 
-const AddTask = ({ active, setActive }) => {
-
+const AddTask = ({active, setActive}) => {
+    const artStyle = {
+        width: '70vw',
+    }
     return (
         <div className={active ? 'modal-main active' : 'modal-main'} onClick={() => setActive(false)}>
             <div className='modal-dialog' onClick={e => e.stopPropagation()}>
-                <form>
-                    <div className='title'>
-                        <h2>Make Task</h2>
-                        <button className='btn-close' onClick={() => setActive(false)}>X</button>
+                <div className='title'>
+                    <ArtElement difStyle={artStyle}/>
+                </div>
 
+                <div className='header-task'>
+                    <button className='btn-close' onClick={() => setActive(false)}>
+                        <img src={arrowBack} alt=''/>
+                    </button>
+                    <div className='inputTaskMain'>
+                        <p>Name</p>
+                        <input className='nameTask' type='text'/>
+                        <p>Date</p>
+                        <input type='date' className='nameTask'/>
                     </div>
-                    <div className='input-field'>
-                        <input className='task-title' type='text' placeholder='Title'></input>
-                        <textarea className='task-description' type='text' placeholder='Description'></textarea>
-                        <div className='deadline'>
-                            <label>Deadline: </label>
-                            <input className='task-date' type='date'></input>
-                        </div>
-                        <button className='btn-sub'>Submit</button>
-                    </div>
-
-                </form>
+                </div>
+                <div className='input-field'>
+                    <p>Description</p>
+                    <textarea maxLength="255" className='task-description' type='text' placeholder='Description'></textarea>
+                    <button className='btn-sub'>Create Task</button>
+                </div>
             </div>
         </div>
 

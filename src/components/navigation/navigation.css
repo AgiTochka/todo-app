@@ -56,8 +56,11 @@
 
 .button img{
     margin: auto 5% auto 8%;
-    width: 2vw;
+    width: calc(2vw - 4px);
     height: auto;
+}
+.active img{
+    width: calc(2vw + 4px);
 }
 
 .button-color {

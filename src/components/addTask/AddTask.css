@@ -18,69 +18,100 @@
 
 .modal-dialog{
     background: white;
-    padding: 0px 20px 20px 20px;
-    border-radius: 5px;
+    padding: 0px 0px 20px 0px;
+    border-radius: 35px;
+    overflow: hidden;
 
+}
+.nameTask{
+    background: none;
+    border-width: 0 0 1px 0;
+    border-color: white;
+    outline: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: xx-large;
+    width: 90%;
 }
 
 .title{
+
+
+}
+.header-task{
+    position: fixed;
+    top: calc(22vh - 50px);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+    font-size: large;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+
 }
-.title h2{
-    color: rgba(0, 0, 0, 0.571);
-}
+
 .btn-close{
     outline: none;
     border: none;
     background: none;
     cursor: pointer;
+    justify-self: start;
+    align-self: start;
+}
+.inputTaskMain{
+    padding-left: 20px;
+    width: 70%;
 }
 .input-field{
-    width: 400px;
+    width: 70vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    color: #BFC8E8;
+    padding-left: 30px;
+    font-size: medium;
 }
-.task-title{
-    width: 100%;
-    border: none;
-    border-bottom: 1px  solid rgba(0, 0, 0, 0.5);
-}
+
 
 .task-description{
-    width: 100%;
-    min-height: 50px;
-    height: 100px;
-    border: none;
-    resize: vertical;
-    max-height: 500px;
+    width: 70%;
+    height: 220px;
+    resize: none;
+    border: 0px solid #DEDEDE;
+    border-radius: 20px;
+    outline: #DEDEDE solid 1px;
+    padding: 10px;
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: x-large;
+    color: #2E3A59;
 }
 
-.task-date{
- width: 30%;
- border: none;
- color: rgba(0, 0, 0, 0.571)
-
-}
 ::-webkit-calendar-picker-indicator {
     filter:opacity(0.5);
 }
-.deadline{
-    color: rgba(0, 0, 0, 0.571)
-}
+
 
 .btn-sub{
-    width: 40%;
-    align-self: center;
-    margin-top: 15px;
-    color: rgb(255, 255, 255);
+    background: linear-gradient(277.09deg, #9C2CF3 -0.05%, #3A49F9 100%);
+    box-shadow: 17px 26px 25px rgba(226, 226, 226, 0.25);
+    border-radius: 75px;
     border: none;
-    padding: 4px;
-    background-color: rgb(255, 225, 0);
-    font-weight: bolder;
-    font-size: medium;
-    border-radius: 5px;
-    box-shadow:  0 1px 4px rgba(0, 0, 0, 0.578);
-    cursor: pointer;
+    outline: none;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    width: 140px;
+    margin: auto;
 }

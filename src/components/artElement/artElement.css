@@ -4,6 +4,7 @@
     height: 36vh;
     margin: 0;
     position: relative;
+    overflow: hidden;
 
 }
 
