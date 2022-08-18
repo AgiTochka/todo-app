@@ -1,0 +1,20 @@
+.main-home{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.workspace{
+    margin-left: 18vw;
+    margin-top: 70px;
+    background: #F9F9F9;
+    width: calc(100vw - 18vw);
+    height: calc(100vh - 70px);
+    border-radius: 38px;
+    transition: margin-left 0.3s, width 0.3s;
+}
+
+.animWorkspace{
+    margin-left: 0;
+    width: 100vw;
+}

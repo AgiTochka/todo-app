@@ -13,11 +13,22 @@ const Header = () => {
         header.classList.toggle('animHeader');
         workspace.classList.toggle('animWorkspace');
     }
+
+    let pageName = '';
+    if (window.location.pathname === `/home`) {
+        pageName = 'Dashboard';
+    }
+    if (window.location.pathname === `/tasks`) {
+        pageName = 'ToDo';
+    }
+    if (window.location.pathname === `/calendar`) {
+        pageName = 'Calendar';
+    }
     return (
         <div className='main-header' id='header'>
             <div className='menu'>
                 <button onClick={() => Pannel()}> <img src={iconMenu} alt={''} /></button>
-                <h2>ToDo</h2>
+                <h2>{pageName}</h2>
             </div>
             <div className='rightSide'>
                 <div className='userInfo'>

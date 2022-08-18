@@ -14,6 +14,7 @@ import Wellcome from './pages/wellcome/Wellcome';
 import Login from './pages/login/Login'
 import useAuth from "./context/AuthProvider";
 import RequireAuth from './context/PrivateRoute';
+import Calendar from "./pages/calendar/Calendar";
 const App = () => {
     const { isAuthenticated } = useAuth();
     return (
@@ -26,6 +27,7 @@ const App = () => {
                     <Route path={"/register"} element={<Registr />}></Route>
                     <Route path={"/login"} element={<Login />}></Route>
                     <Route path={"/tasks"} element={<Tasks />}></Route>
+                    <Route path={"/calendar"} element={<Calendar/>}></Route>
                     <Route path='*' element={<Navigate to={isAuthenticated ? '/home' : '/'} />} />
                 </Routes>
             </div>
