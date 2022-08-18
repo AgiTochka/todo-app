@@ -7,11 +7,24 @@
 .workspace{
     margin-left: 18vw;
     margin-top: 70px;
+    padding-left: 30px;
+    padding-top: 10px;
     background: #F9F9F9;
     width: calc(100vw - 18vw);
     height: calc(100vh - 70px);
     border-radius: 38px;
     transition: margin-left 0.3s, width 0.3s;
+
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+.workspace h2{
+    font-weight: 600;
+    font-size: x-large;
+}
+.workspace p{
+    font-weight: 500;
 }
 
 .main-body{
