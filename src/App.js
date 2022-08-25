@@ -15,10 +15,11 @@ import Login from './pages/login/Login'
 import useAuth from "./context/AuthProvider";
 import RequireAuth from './context/PrivateRoute';
 import Calendar from "./pages/calendar/Calendar";
+
 const App = () => {
     const { isAuthenticated } = useAuth();
-    return (
 
+    return (
         <Router>
             <div className='App'>
                 <Routes>
@@ -31,13 +32,8 @@ const App = () => {
                     <Route path='*' element={<Navigate to={isAuthenticated ? '/home' : '/'} />} />
                 </Routes>
             </div>
-
         </Router>
-
-
     );
 }
-
-
 
 export default App;

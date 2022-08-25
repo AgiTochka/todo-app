@@ -2,9 +2,7 @@
     background-color: white;
     display: flex;
     min-height: 100vh;
-
 }
-
 
 .workspaceTask{
     margin-left: 18vw;
@@ -17,10 +15,12 @@
     overflow: hidden;
     padding-bottom: 50px;
 }
+
 .task-space{
     overflow: auto;
     height: 100%;
 }
+
 .btn-create{
     background: linear-gradient(277.09deg, #9C2CF3 -0.05%, #3A49F9 100%);
     box-shadow: 17px 26px 25px rgba(226, 226, 226, 0.25);

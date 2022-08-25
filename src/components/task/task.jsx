@@ -3,7 +3,6 @@ import './task.css';
 import listIcon from './img/list.svg';
 import menuIcon from './img/menu.svg';
 
-
 class Task extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +13,6 @@ class Task extends React.Component {
             isComplete: false,
             createdAt: null,
         }
-
     }
 
     render() {
@@ -25,17 +23,18 @@ class Task extends React.Component {
         const createdAt = this.state.createdAt;
 
         return (
-
             <div className='bg-task'>
-               <div className='task-data'>
-                   <div className='icon'>
-                       <img src={listIcon} alt=''/>
-                   </div>
-                   <div className='task-text'>
-                       <h2>{(title!=null) ? title : 'Title'}</h2>
-                       <p>{(deadline!=null) ? deadline : 'Deadline'}</p>
-                   </div>
-               </div>
+                <div className='task-data'>
+                    <div className='icon'>
+                        <img src={listIcon} alt=''/>
+                    </div>
+
+                    <div className='task-text'>
+                        <h2>{(title != null) ? title : 'Title'}</h2>
+                        <p>{(deadline != null) ? deadline : 'Deadline'}</p>
+                    </div>
+                </div>
+
                 <img className='menu-icon' src={menuIcon} alt=''/>
             </div>
         );

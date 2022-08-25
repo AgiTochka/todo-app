@@ -14,7 +14,6 @@
     height: calc(100vh - 70px);
     border-radius: 38px;
     transition: margin-left 0.3s, width 0.3s;
-
     font-family: 'Poppins', sans-serif;
     color: black;
 }
@@ -23,22 +22,21 @@
     font-weight: 600;
     font-size: x-large;
 }
+
 .workspace p{
     font-weight: 500;
 }
 
 .main-body{
     width: 100vw;
-
 }
-
 
 .btn-add{
     width: 100%;
     display: flex;
     justify-content: center;
-
 }
+
 .btn-add button{
     color: rgb(255, 255, 255);
     border: none;

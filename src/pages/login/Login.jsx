@@ -1,7 +1,7 @@
 import {useRef, useState, useEffect, useContext, React} from 'react';
 import AuthContext from '../../context/AuthProvider';
 import './Login.css';
-import { useNavigate, Link} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
 import useAuth from '../../context/AuthProvider';
@@ -28,9 +28,8 @@ const Login = () => {
                     withCredentials: true
                 }
             );
+
             console.log(JSON.stringify(response?.data));
-            /*console.log('login: ', username);
-            console.log('password: ', password);*/
             setUsername('');
             setPassword('');
             setSuccess(true);
@@ -47,10 +46,8 @@ const Login = () => {
                 setErrMsg('Login Failed');
             }
             errRef.current.focus();
-
         }
     }
-
 
     return (
         <>
@@ -62,6 +59,7 @@ const Login = () => {
                         <p><b>Back</b></p>
                         <p>!</p>
                     </div>
+
                     <div className='input-user'>
                         <input
                             type="text"
@@ -73,6 +71,7 @@ const Login = () => {
                             value={username}
                             required
                         />
+
                         <input
                             id='password'
                             onChange={(e) => setPassword(e.target.value)}
@@ -81,12 +80,15 @@ const Login = () => {
                             value={password}
                             required
                         />
+
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     </div>
+
                     <div className='btn'>
-                            <button className='btn-login' >
-                                LOGIN
-                            </button>
+                        <button className='btn-login'>
+                            LOGIN
+                        </button>
+
                         <Link to={'/'}>
                             <button className='btn-back'>
                                 BACK
@@ -98,6 +100,5 @@ const Login = () => {
         </>
     );
 }
-
 
 export default Login;

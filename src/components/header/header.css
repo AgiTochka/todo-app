@@ -28,8 +28,8 @@
     font-weight: 500;
     margin: auto;
     padding: 10px 15px 15px 15px;
-
 }
+
 .userInfo{
     padding: 18px 15px 15px 15px;
 }
@@ -42,15 +42,16 @@
     padding: 10px;
     height: 60%;
     padding-top: 15px;
-    
     background: #f8f7f7;
     border-radius: 18px;
 }
+
 .search input{
     background: #f8f7f7;
     border: none;
     outline: none;
 }
+
 .search img{
     width: 15px;
 }

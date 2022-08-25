@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArtElement from '../../components/artElement/artElement';
 import './Wellcome.css';
+import ArtElement from '../../components/artElement/artElement';
 
 const Wellcome = () => {
-
     return (
         <>
             <ArtElement />
@@ -22,7 +21,6 @@ const Wellcome = () => {
                 </div>
             </div>
         </>
-
     )
 }
 

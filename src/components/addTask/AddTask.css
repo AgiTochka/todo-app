@@ -1,4 +1,5 @@
-.modal-main{
+/*main body*/
+.modalMain{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -12,17 +13,50 @@
     background-color: rgba(0, 0, 0, 0.25);
     transform: scale(0);
 }
-.modal-main.active{
+
+.modalMain.active{
     transform: scale(1);
 }
 
-.modal-dialog{
+.modalDialog{
     background: white;
-    padding: 0px 0px 20px 0px;
+    padding: 0 0 20px 0;
     border-radius: 35px;
     overflow: hidden;
+}
+
+/*art element on header*/
+.title{
 
 }
+
+/*content on art element*/
+.headerTask{
+    position: fixed;
+    top: calc(22vh - 50px);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+}
+
+.btnClose{
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    justify-self: start;
+    align-self: start;
+}
+
+.inputTaskMain{
+    padding-left: 20px;
+    width: 70%;
+}
+
 .nameTask{
     background: none;
     border-width: 0 0 1px 0;
@@ -36,36 +70,8 @@
     width: 90%;
 }
 
-.title{
-
-
-}
-.header-task{
-    position: fixed;
-    top: calc(22vh - 50px);
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    color: white;
-    font-size: large;
-    display: flex;
-    flex-direction: row;
-
-}
-
-.btn-close{
-    outline: none;
-    border: none;
-    background: none;
-    cursor: pointer;
-    justify-self: start;
-    align-self: start;
-}
-.inputTaskMain{
-    padding-left: 20px;
-    width: 70%;
-}
-.input-field{
+/*content after art element*/
+.inputField{
     width: 70vw;
     display: flex;
     flex-direction: column;
@@ -79,8 +85,7 @@
     font-size: medium;
 }
 
-
-.task-description{
+.descriptionTask{
     width: 70%;
     height: 220px;
     resize: none;
@@ -100,8 +105,7 @@
     filter:opacity(0.5);
 }
 
-
-.btn-sub{
+.btnSub{
     background: linear-gradient(277.09deg, #9C2CF3 -0.05%, #3A49F9 100%);
     box-shadow: 17px 26px 25px rgba(226, 226, 226, 0.25);
     border-radius: 75px;

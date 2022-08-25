@@ -2,17 +2,18 @@
     background: #FFFFFF;
     box-shadow: 0 -7px 23px rgba(0, 0, 0, 0.02);
     border-radius: 20px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 20px;
     height: 90px;
 }
+
 .task-data{
     display: flex;
     flex-direction: row;
 }
+
 .task-text{
     display: flex;
     flex-direction: column;
@@ -20,17 +21,20 @@
     line-height: 0.001em;
     margin: 10px;
 }
+
 .task-text p{
     color: #AEAEB3;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
 }
+
 .task-text h2{
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
 }
+
 .icon{
     background: linear-gradient(177.23deg, #9C2CF3 -13.49%, #3A49F9 109.75%);
     width: 60px;
@@ -39,9 +43,11 @@
     margin-left: 25px;
     margin-top: 15px;
 }
+
 .icon img{
     padding: 15px;
 }
+
 .menu-icon{
     height: 40%;
     margin-right: 20px;

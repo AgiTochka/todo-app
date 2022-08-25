@@ -2,7 +2,6 @@ import './Calendar.css';
 import Navigation from '../../components/navigation/navigation';
 import Header from "../../components/header/header";
 
-
 const Calendar = () => {
 
     return (

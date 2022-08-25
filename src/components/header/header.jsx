@@ -4,8 +4,8 @@ import iconMenu from './img/menu.svg';
 import iconSearch from './img/search.svg';
 
 const Header = () => {
-    const Pannel = () => {
-        const pan = document.getElementById('pannel');
+    const Panel = () => {
+        const pan = document.getElementById('panel');
         const header = document.getElementById('header');
         const workspace = document.getElementById('workspace');
 
@@ -24,24 +24,26 @@ const Header = () => {
     if (window.location.pathname === `/calendar`) {
         pageName = 'Calendar';
     }
+
     return (
         <div className='main-header' id='header'>
             <div className='menu'>
-                <button onClick={() => Pannel()}> <img src={iconMenu} alt={''} /></button>
+                <button onClick={() => Panel()}> <img src={iconMenu} alt={''} /></button>
                 <h2>{pageName}</h2>
             </div>
+
             <div className='rightSide'>
                 <div className='userInfo'>
                     <label>Username</label>
                 </div>
+
                 <div className='search'>
                     <input placeholder='Search Project' />
-                    <img className='btnSearch' src={iconSearch} ait=''/>
+                    <img className='btnSearch' src={iconSearch} alt=''/>
                 </div>
             </div>
-
-
         </div>
     );
 }
+
 export default Header;

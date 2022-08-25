@@ -100,6 +100,7 @@ const Registr = () => {
                                 placeholder='username'
                             />
                         </div>
+
                         <p>!</p>
                     </div>
 
@@ -116,6 +117,7 @@ const Registr = () => {
                             onBlur={() => setPasswordFocus(false)}
                             placeholder='password'
                         />
+
                         <input
                             placeholder='password'
                             type="password"
@@ -128,6 +130,7 @@ const Registr = () => {
                             onFocus={() => setMatchFocus(true)}
                             onBlur={() => setMatchFocus(false)}
                         />
+
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     </div>
                     <div className='btn'>
@@ -136,6 +139,7 @@ const Registr = () => {
                                 SIGNUP
                             </button>
                         </Link>
+
                         <Link to={'/'}>
                             <button className='btn-back'>
                                 BACK
@@ -147,6 +151,5 @@ const Registr = () => {
         </>
     );
 }
-
 
 export default Registr;

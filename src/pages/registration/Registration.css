@@ -8,7 +8,6 @@
     right: 0;
     top: calc(36vh - 15px);
     z-index: 3;
-
 }
 
 .form-registr {
@@ -25,11 +24,9 @@
     flex-wrap: wrap;
     animation-duration: 0.6s;
     animation-name: registr;
-
 }
 
 /*main text*/
-
 .text-wellcome {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -50,19 +47,15 @@
     cursor: default;
 }
 
-
-
-
 /*password input*/
-
 .input-password,
 .inputUsername{
     display: flex;
     flex-direction: column;
     margin: auto;
     padding: 10px;
-
 }
+
 .input-password input,
 .inputUsername input {
     width: 20vw;
@@ -79,6 +72,7 @@
     padding: 0.375rem 0.75rem;
     text-align: center;
 }
+
 .input-password input::-webkit-input-placeholder,
 .text-wellcome input::-webkit-input-placeholder{
     color: white;
@@ -88,10 +82,7 @@
     text-align: center;
 }
 
-
-
-/*for screen <800px*/
-
+/*media for screen < 800px*/
 @media screen and (max-width: 800px) {
     .form-registr {
         display: flex;
@@ -114,11 +105,9 @@
         margin: 10px;
         width: 30vw;
     }
-
 }
 
 /*Button*/
-
 .btn-signup,
 .btn-back {
     width: 33vw;
@@ -144,7 +133,7 @@
     background-color: black;
 }
 
-
+/*Animation*/
 @keyframes registr {
     from {
         top: calc(36vh - 15px);
