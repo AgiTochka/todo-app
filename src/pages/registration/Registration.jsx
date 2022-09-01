@@ -8,7 +8,7 @@ const username_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const password_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/register';
 
-const Registr = () => {
+const Registration = () => {
 
     const usernameRef = useRef();
     const errRef = useRef();
@@ -152,4 +152,4 @@ const Registr = () => {
     );
 }
 
-export default Registr;
+export default Registration;

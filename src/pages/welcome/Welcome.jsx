@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Wellcome.css';
+import './Welcome.css';
 import ArtElement from '../../components/artElement/artElement';
 
-const Wellcome = () => {
+const Welcome = () => {
     return (
         <>
             <ArtElement />
-            <div className='main-wellcome'>
-                <div className="text-wellcome">
+            <div className='main-welcome'>
+                <div className="text-welcome">
                     <p>TODO</p><p><b>CHECK</b></p><p>.</p>
                 </div>
                 <div className='btn'>
@@ -24,4 +24,4 @@ const Wellcome = () => {
     )
 }
 
-export default Wellcome;
+export default Welcome;

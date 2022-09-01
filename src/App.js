@@ -1,38 +1,53 @@
 import React from 'react';
 import './App.css';
 import {
-    BrowserRouter as Router,
+    BrowserRouter as Router, Route,
     Routes,
-    Route,
-    Navigate, useLocation
 } from 'react-router-dom';
-
-import Home from './pages/home/Home';
-import Tasks from './pages/tasks/Tasks';
-import Registr from './pages/registration/Registration';
-import Wellcome from './pages/wellcome/Wellcome';
-import Login from './pages/login/Login'
-import useAuth from "./context/AuthProvider";
-import RequireAuth from './context/PrivateRoute';
+import ProtectedRoute from "./components/ProtectedRoute";
+import Welcome from "./pages/welcome/Welcome";
+import Login from "./pages/login/Login";
+import Registration from "./pages/registration/Registration";
+import Home from "./pages/home/Home";
+import Tasks from "./pages/tasks/Tasks";
 import Calendar from "./pages/calendar/Calendar";
+import PageNotFound from "./pages/NotFound/index.js";
+
 
 const App = () => {
-    const { isAuthenticated } = useAuth();
-
     return (
-        <Router>
-            <div className='App'>
+            <Router>
                 <Routes>
-                    <Route path={"/"} element={<Wellcome/>}></Route>
-                    <Route path={"/home"} element={<Home/>}></Route>
-                    <Route path={"/register"} element={<Registr />}></Route>
-                    <Route path={"/login"} element={<Login />}></Route>
-                    <Route path={"/tasks"} element={<Tasks />}></Route>
-                    <Route path={"/calendar"} element={<Calendar/>}></Route>
-                    <Route path='*' element={<Navigate to={isAuthenticated ? '/home' : '/'} />} />
+                    <Route path={'/'} element={<Welcome/>}/>
+                    <Route path={'/login'} element={<Login/>}/>
+                    <Route path={'/register'} element={<Registration/>}/>
+                    <Route
+                        path={'/home'}
+                        element={
+                            <ProtectedRoute>
+                                <Home/>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path={'/tasks'}
+                        element={
+                            <ProtectedRoute>
+                                <Tasks/>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path={'/calendar'}
+                        element={
+                            <ProtectedRoute>
+                                <Calendar/>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path={'/*'} element={<PageNotFound/>}/>
                 </Routes>
-            </div>
-        </Router>
+            </Router>
     );
 }
 

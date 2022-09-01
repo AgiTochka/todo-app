@@ -1,17 +1,17 @@
 import {useRef, useState, useEffect, useContext, React} from 'react';
-import AuthContext from '../../context/AuthProvider';
 import './Login.css';
 import {useNavigate, Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
-import useAuth from '../../context/AuthProvider';
+import {useAuth} from "../../hooks/useAuth";
 
 const LOGIN_URL = '/auth';
 
-const Login = () => {
+const Login = (props) => {
+
+
     const usernameRef = useRef();
     const errRef = useRef();
-    const history = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -30,12 +30,13 @@ const Login = () => {
             );
 
             console.log(JSON.stringify(response?.data));
+
             setUsername('');
             setPassword('');
             setSuccess(true);
-            history('/home');
+            useAuth().login(username);
+            props.history.push('/home');
         } catch (err) {
-            console.log('gvhhj err');
             if (err.response?.status >= 500) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status >= 400) {
@@ -53,9 +54,9 @@ const Login = () => {
         <>
             <ArtElement/>
             <div className='main-login'>
-                <form className='form-login' onSubmit={handleSubmit}>
-                    <div className='text-wellcome'>
-                        <p>Wellcome</p>
+                <form className='form-login' >
+                    <div className='text-welcome'>
+                        <p>Welcome</p>
                         <p><b>Back</b></p>
                         <p>!</p>
                     </div>
@@ -85,7 +86,7 @@ const Login = () => {
                     </div>
 
                     <div className='btn'>
-                        <button className='btn-login'>
+                        <button className='btn-login' onClick={handleSubmit}>
                             LOGIN
                         </button>
 

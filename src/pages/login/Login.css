@@ -26,7 +26,7 @@
     animation-name: login;
 }
 
-.text-wellcome {
+.text-welcome {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 800;
@@ -35,14 +35,14 @@
     display: flex;
 }
 
-.text-wellcome p{
+.text-welcome p{
     background-color: #2AA5A0;
     background-image: linear-gradient(96.77deg, #9C2CF3 6.68%, #F32CA3 55.12%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.text-wellcome b {
+.text-welcome b {
     background-image: black;
     background-color: black;
     -webkit-background-clip: text;
@@ -52,7 +52,7 @@
     margin-bottom: auto;
 }
 
-.text-wellcome:hover {
+.text-welcome:hover {
     cursor: default;
 }
 
