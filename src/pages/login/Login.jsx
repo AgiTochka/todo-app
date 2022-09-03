@@ -3,7 +3,7 @@ import './Login.css';
 import {useNavigate, Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
-import {useAuth} from "../../hooks/useAuth";
+import { useAuth } from '../../hooks/useAuth';
 
 const LOGIN_URL = '/auth';
 
@@ -18,6 +18,7 @@ const Login = (props) => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
+    const { onLogin } = useAuth();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -34,7 +35,6 @@ const Login = (props) => {
             setUsername('');
             setPassword('');
             setSuccess(true);
-            useAuth().login(username);
             props.history.push('/home');
         } catch (err) {
             if (err.response?.status >= 500) {
@@ -86,7 +86,7 @@ const Login = (props) => {
                     </div>
 
                     <div className='btn'>
-                        <button className='btn-login' onClick={handleSubmit}>
+                        <button className='btn-login' onClick={onLogin}>
                             LOGIN
                         </button>
 

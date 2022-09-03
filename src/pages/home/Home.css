@@ -6,12 +6,12 @@
 
 .workspace{
     margin-left: 18vw;
-    margin-top: 70px;
-    padding-left: 30px;
-    padding-top: 10px;
+    margin-top: 125px;
+    padding-left: 40px;
+    padding-top: 25px;
     background: #F9F9F9;
     width: calc(100vw - 18vw);
-    height: calc(100vh - 70px);
+    height: calc(100vh - 125px);
     border-radius: 38px;
     transition: margin-left 0.3s, width 0.3s;
     font-family: 'Poppins', sans-serif;
@@ -20,11 +20,14 @@
 
 .workspace h2{
     font-weight: 600;
-    font-size: x-large;
+    font-size: 54px;
+    margin-bottom: 5px;
 }
 
 .workspace p{
     font-weight: 500;
+    font-size: 24px;
+    margin-top: 0;
 }
 
 .main-body{

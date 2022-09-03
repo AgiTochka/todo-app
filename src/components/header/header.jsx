@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAuth } from '../../hooks/useAuth';
 import './header.css';
 import iconMenu from './img/menu.svg';
 import iconSearch from './img/search.svg';
@@ -34,12 +35,17 @@ const Header = () => {
 
             <div className='rightSide'>
                 <div className='userInfo'>
-                    <label>Username</label>
+                    <div className='user'>
+                        <label className='userName'>Username</label>
+                        <label className='userDescription'>User Description</label>
+                    </div>
+
+                    <div className='userAvatar'></div>
                 </div>
 
                 <div className='search'>
-                    <input placeholder='Search Project' />
-                    <img className='btnSearch' src={iconSearch} alt=''/>
+                    <input placeholder='Search Project ...' />
+                    <img className='btnSearch' src={iconSearch} alt='' />
                 </div>
             </div>
         </div>

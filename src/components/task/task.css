@@ -5,8 +5,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 20px;
-    height: 90px;
+    align-content: center;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin: 0px 35px 20px 35px;
+    height: 122px;
 }
 
 .task-data{
@@ -18,8 +21,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    line-height: 0.001em;
-    margin: 10px;
+    align-content: center;
+    margin-left: 25px;
 }
 
 .task-text p{
@@ -27,12 +30,14 @@
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
+    margin: 0;
 }
 
 .task-text h2{
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
+    margin: 0;
 }
 
 .icon{
@@ -40,8 +45,8 @@
     width: 60px;
     height: 60px;
     border-radius: 10px;
-    margin-left: 25px;
-    margin-top: 15px;
+    align-self: center;
+    margin-left: 34px;
 }
 
 .icon img{
@@ -49,7 +54,7 @@
 }
 
 .menu-icon{
-    height: 40%;
-    margin-right: 20px;
-    margin-top: 25px;
+    height: 28px;
+    margin: auto;
+    margin-right: 35px;
 }

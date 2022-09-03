@@ -6,18 +6,16 @@
 
 .workspaceTask{
     margin-left: 18vw;
-    margin-top: 70px;
+    margin-top: 125px;
     background: #F9F9F9;
     width: calc(100vw - 18vw);
-    height: calc(100vh - 70px);
+    height: calc(100vh - 125px);
     border-radius: 38px;
     transition: margin-left 0.3s, width 0.3s;
     overflow: hidden;
-    padding-bottom: 50px;
 }
 
 .task-space{
-    overflow: auto;
     height: 100%;
 }
 

@@ -81,7 +81,6 @@
 }
 
 .input-user input::placeholder {
-    font-style: italic;
     font-size: medium;
     text-align: center;
     color: rgb(255, 255, 255);

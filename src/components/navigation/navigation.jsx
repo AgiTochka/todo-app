@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './navigation.css';
 import iconTaskAct from './img/icon-task-active.svg';
@@ -8,6 +8,13 @@ import iconDbAct from './img/icon-db-active.svg';
 import iconDb from './img/icon-db.svg';
 import iconCalendar from './img/icon-calendar.svg';
 import iconCalendarAct from './img/icon-calendar-active.svg';
+
+const icon = {
+    width: '28px',
+}
+const activeIcon = {
+    width: '30px',
+}
 
 
 class Navigation extends React.Component {
@@ -34,28 +41,28 @@ class Navigation extends React.Component {
                         <p>TODO</p><p><b>CHECK</b></p><p>.</p>
                     </div>
                 </NavLink>
+                <div className='navigationButtons'>
+                    <NavLink to={'/home'}>
+                        <div className='button button-color'>
+                            <img className='icon-svg' src={isActiveHome ? iconDbAct : iconDb} alt='logo' />
+                            <p>Dashboard</p>
+                        </div>
+                    </NavLink>
 
-                <NavLink to={'/home'}>
-                    <div className='button button-color'>
-                        <img className='icon-svg' src={isActiveHome ? iconDbAct : iconDb} alt='logo'/>
-                        <p>Dashboard</p>
-                    </div>
-                </NavLink>
+                    <NavLink to={"/tasks"} >
+                        <div className='button button-color'>
+                            <img className='icon-svg' src={isActiveTask ? iconTaskAct : iconTask} alt='logo' />
+                            <p>ToDo</p>
+                        </div>
+                    </NavLink>
 
-                <NavLink to={"/tasks"} >
-                    <div className='button button-color'>
-                        <img className='icon-svg' src={isActiveTask ? iconTaskAct : iconTask} alt='logo'/>
-                        <p>ToDo</p>
-                    </div>
-                </NavLink>
-
-                <NavLink to={'/calendar'}>
-                    <div className='button button-color'>
-                        <img className='icon-svg' src={isActiveCalendar ? iconCalendarAct : iconCalendar} alt='logo'/>
-                        <p>Calendar</p>
-                    </div>
-                </NavLink>
-
+                    <NavLink to={'/calendar'}>
+                        <div className='button button-color'>
+                            <img className='icon-svg' src={isActiveCalendar ? iconCalendarAct : iconCalendar} alt='logo' style={isActiveCalendar ? activeIcon : icon} />
+                            <p>Calendar</p>
+                        </div>
+                    </NavLink>
+                </div>
                 <div className='white-block'></div>
             </div>
         );

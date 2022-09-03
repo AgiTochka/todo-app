@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import './Home.css';
 import Navigation from '../../components/navigation/navigation';
 import Header from "../../components/header/header";
+import {useAuth} from "../../hooks/useAuth";
 
 function CurrentDate  () {
     const current = new Date();
-    const monthName = current.toLocaleString("default", {month: "short"});
-    const dayName = current.toLocaleDateString("default", { weekday: 'short' });
-    return dayName + ' ' + current.getDate() + ' ' + monthName + ', ' + current.getFullYear() + ' | ' + current.getHours() + ':' + current.getMinutes();
+    const monthName = current.toLocaleString("en-US", {month: "short"});
+    const dayName = current.toLocaleDateString("en-US", { weekday: 'short' });
+    return dayName + ' ' + current.getDate() + ' ' + monthName + ', ' + current.getFullYear() ;
 }
 
-class Home extends React.Component{
-    render() {
+
+const Home = () =>{
+    const { token } = useAuth();
         return (
             <div className='main-home'>
                 <Navigation />
@@ -24,6 +26,5 @@ class Home extends React.Component{
             </div>
         )
     }
-}
 
 export default Home;

@@ -12,20 +12,24 @@ import Home from "./pages/home/Home";
 import Tasks from "./pages/tasks/Tasks";
 import Calendar from "./pages/calendar/Calendar";
 import PageNotFound from "./pages/NotFound/index.js";
+import { AuthProvider } from './hooks/useAuth';
 
 
 const App = () => {
+
     return (
-            <Router>
+
+        <Router>
+            <AuthProvider >
                 <Routes>
-                    <Route path={'/'} element={<Welcome/>}/>
-                    <Route path={'/login'} element={<Login/>}/>
-                    <Route path={'/register'} element={<Registration/>}/>
+                    <Route path={'/'} element={<Welcome />} />
+                    <Route path={'/login'} element={<Login />} />
+                    <Route path={'/register'} element={<Registration />} />
                     <Route
                         path={'/home'}
                         element={
                             <ProtectedRoute>
-                                <Home/>
+                                <Home />
                             </ProtectedRoute>
                         }
                     />
@@ -33,7 +37,7 @@ const App = () => {
                         path={'/tasks'}
                         element={
                             <ProtectedRoute>
-                                <Tasks/>
+                                <Tasks />
                             </ProtectedRoute>
                         }
                     />
@@ -41,13 +45,14 @@ const App = () => {
                         path={'/calendar'}
                         element={
                             <ProtectedRoute>
-                                <Calendar/>
+                                <Calendar />
                             </ProtectedRoute>
                         }
                     />
-                    <Route path={'/*'} element={<PageNotFound/>}/>
+                    <Route path={'/*'} element={<PageNotFound />} />
                 </Routes>
-            </Router>
+            </AuthProvider>
+        </Router>
     );
 }
 

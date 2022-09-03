@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     width:calc(100vw - 18vw);
-    height:70px;
+    height:125px;
     left:18vw;
     top:0;
     justify-content: space-between;
@@ -14,6 +14,7 @@
 .menu{
     display: flex;
     flex-direction: row;
+    margin-left: 15px;
 }
 
 .menu button{
@@ -25,35 +26,71 @@
 
 .menu h2{
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     margin: auto;
     padding: 10px 15px 15px 15px;
 }
 
 .userInfo{
-    padding: 18px 15px 15px 15px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+.userInfo label{
+    align-items: center;
+    text-align: right;
+    margin-bottom: 5px;
+}
+.user{
+    align-items: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 30px;
 
+}
+.userName{
+    font-weight: 500;
+}
+.userDescription{
+    font-weight: 400;
+}
+.userAvatar{
+    border-radius: 50px;
+    width: 57px;
+    height: 57px;
+    background-color: #757575;
+}
 .search{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 15px;
+    margin: 15px 56px 15px 56px;
     padding: 10px;
-    height: 60%;
+    height: 58px;
+    width: 324px;
     padding-top: 15px;
     background: #f8f7f7;
     border-radius: 18px;
+    align-self: center;
 }
 
 .search input{
     background: #f8f7f7;
     border: none;
     outline: none;
+    margin-left: 15px;
+    font-size: 16px;
+    color: #757575;
+    font-weight: 500;
 }
-
+.search input::placeholder{
+    font-weight: 500;
+}
 .search img{
-    width: 15px;
+    width: 17px;
+    margin-right: 19px;
 }
 
 .rightSide{
