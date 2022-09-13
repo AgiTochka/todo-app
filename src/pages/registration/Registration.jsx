@@ -3,6 +3,7 @@ import './Registration.css';
 import {Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
+import {useAuth} from "../../hooks/useAuth";
 
 const username_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const password_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -10,6 +11,7 @@ const REGISTER_URL = '/register';
 
 const Registration = () => {
 
+    const {onLogin} = useAuth();
     const usernameRef = useRef();
     const errRef = useRef();
 
@@ -26,7 +28,6 @@ const Registration = () => {
     const [matchFocus, setMatchFocus] = useState(false);
 
     const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         usernameRef.current.focus();
@@ -58,11 +59,7 @@ const Registration = () => {
                         withCredentials: true
                     }
                 );
-                setSuccess(true);
-                //clear state and controlled inputs
-                setUsername('');
-                setPassword('');
-                setmatchPassword('');
+                onLogin(e, username, password);
             }
         } catch (err) {
             if (err.response?.status >= 500) {
@@ -134,11 +131,9 @@ const Registration = () => {
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     </div>
                     <div className='btn'>
-                        <Link to={success ? '/home' : '/register'}>
                             <button className='btn-signup' onClick={handleSubmit}>
                                 SIGNUP
                             </button>
-                        </Link>
 
                         <Link to={'/'}>
                             <button className='btn-back'>

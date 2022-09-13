@@ -19,36 +19,7 @@ const Login = (props) => {
     const [success, setSuccess] = useState(false);
 
     const { onLogin } = useAuth();
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post(LOGIN_URL,
-                JSON.stringify({username, password}),
-                {
-                    headers: {'Content-Type': 'application/json'},
-                    withCredentials: true
-                }
-            );
 
-            console.log(JSON.stringify(response?.data));
-
-            setUsername('');
-            setPassword('');
-            setSuccess(true);
-            props.history.push('/home');
-        } catch (err) {
-            if (err.response?.status >= 500) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status >= 400) {
-                setErrMsg('Missing Username or Password');
-            } else if (err.response?.status <= 199) {
-                setErrMsg('Server is not exists');
-            } else {
-                setErrMsg('Login Failed');
-            }
-            errRef.current.focus();
-        }
-    }
 
     return (
         <>
@@ -86,7 +57,7 @@ const Login = (props) => {
                     </div>
 
                     <div className='btn'>
-                        <button className='btn-login' onClick={onLogin}>
+                        <button className='btn-login' onClick={(e) => onLogin(e, username, password)}>
                             LOGIN
                         </button>
 
