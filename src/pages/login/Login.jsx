@@ -3,7 +3,7 @@ import './Login.css';
 import {useNavigate, Link} from 'react-router-dom';
 import ArtElement from '../../components/artElement/artElement';
 import axios from '../../api/axios';
-import { useAuth } from '../../hooks/useAuth';
+import {useAuth} from '../../hooks/useAuth';
 
 const LOGIN_URL = '/auth';
 
@@ -16,16 +16,42 @@ const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
 
-    const { onLogin } = useAuth();
+    const {onLogin} = useAuth();
 
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post(LOGIN_URL,
+                JSON.stringify({username, password}),
+                {
+                    headers: {'Content-Type': 'application/json'},
+                    withCredentials: true
+                }
+            );
+            console.log(JSON.stringify(response?.data));
+            const obj = JSON.parse(JSON.stringify(response?.data));
+            onLogin(e, obj.id)
+        } catch (err) {
+            if (err.response?.status >= 500) {
+                setErrMsg('No Server Response');
+            } else if (err.response?.status >= 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status <= 199) {
+                setErrMsg('Server is not exists');
+            } else {
+                setErrMsg('Login Failed');
+            }
+        }
+    }
 
     return (
         <>
             <ArtElement/>
             <div className='main-login'>
-                <form className='form-login' >
+                <form className='form-login'>
                     <div className='text-welcome'>
                         <p>Welcome</p>
                         <p><b>Back</b></p>
@@ -57,7 +83,7 @@ const Login = (props) => {
                     </div>
 
                     <div className='btn'>
-                        <button className='btn-login' onClick={(e) => onLogin(e, username, password)}>
+                        <button className='btn-login' onClick={handleSubmit}>
                             LOGIN
                         </button>
 

@@ -59,7 +59,8 @@ const Registration = () => {
                         withCredentials: true
                     }
                 );
-                onLogin(e, username, password);
+                const obj = JSON.parse(JSON.stringify(response?.data));
+                onLogin(e, obj.id)
             }
         } catch (err) {
             if (err.response?.status >= 500) {
